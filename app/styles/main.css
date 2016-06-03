@@ -42,8 +42,45 @@ section{
 
 
 /* CH04 - Header & Navigation */
-
-
+.main-nav{
+  min-height:150px;
+  color:#fff;
+  background: rgb(243,185,180); /* Old browsers */
+  background: -moz-linear-gradient(left,  rgba(243,185,180,1) 0%, rgba(136,155,207,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  rgba(243,185,180,1) 0%,rgba(136,155,207,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  rgba(243,185,180,1) 0%,rgba(136,155,207,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3b9b4', endColorstr='#889bcf',GradientType=1 ); /* IE6-9 */
+}
+.main-nav .row:nth-child(1){
+  margin-top:15px;
+}
+.nav-logo{
+  height:50px;
+}
+.main-nav ul{
+  padding:0;
+}
+.main-nav ul li{
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 18px;
+}
+.main-nav ul a{
+  color:#ededed;
+}
+.nav-username img{
+  display:inline;
+  width:40px;
+  border-radius:50px;
+}
+.nav-username{
+  color:#fff;
+  font-size:20px;
+}
+.nav-username a{
+  color:#fff;
+  text-decoration:none;
+}
 /* CH05 - Content & Media */
 
 /*login page*/

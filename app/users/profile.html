@@ -1,3 +1,31 @@
+<nav class="main-nav">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+          <ul>
+            <a ui-sref="profile"><li><img class="nav-logo"src="img/logo.svg"></li></a>
+            <a href="#"><li>Closets</li></a>
+            <a href="#"><li>MetaCloset</li></a>
+            <a href="#"><li>Wishlist</li></a>
+          </ul>
+        </div>
+        <div class="col-md-2 col-md-offset-2 ">
+          <div class="nav-username">
+              <a ui-sref="profile"><img ng-src="{{profileCtrl.getGravatar(profileCtrl.profile.$id)}}" alt="" />
+              {{profileCtrl.profile.displayName}}</a>
+          </div>
+
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="nav-breadcrumb">
+            <h1>User Info</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 <div class="page-header">
   <h1>Edit Profile</h1>
 </div>

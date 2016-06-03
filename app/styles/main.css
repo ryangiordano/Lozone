@@ -1,0 +1,162 @@
+
+/* Table of Contents */
+
+
+/**
+ * CH01 - General
+ * CH02 - Typography
+ * CH03 - Page Structure
+ * CH04 - Header & Navigation
+ * CH05 - Content & Media
+ * CH06 - Footer
+ * CH07 - Miscellaneous
+**/
+
+
+/* CH01 - General */
+
+* {
+    transition: all .2s ease initial;
+}
+
+/* CH02 - Typography */
+
+body {
+    font-family: "Raleway", Arial, sans-serif;
+}
+.lozone-title{
+  font-weight:200;;
+  color:#fff;
+}
+/* CH03 - Page Structure */
+
+body,html {
+    height: 100%;
+}
+
+section{
+  min-height:100%;
+}
+
+
+
+
+/* CH04 - Header & Navigation */
+
+
+/* CH05 - Content & Media */
+
+/*login page*/
+.login-section{
+background: rgb(243,185,180); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(243,185,180,1) 0%, rgba(136,155,207,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(243,185,180,1) 0%,rgba(136,155,207,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(243,185,180,1) 0%,rgba(136,155,207,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3b9b4', endColorstr='#889bcf',GradientType=1 ); /* IE6-9 */
+}
+.login-panel{
+  background-color:#fff;
+  max-width:40%;
+  margin:10px auto;
+  padding:3%;
+  text-align:center;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+}
+.login-section input,.login-section button{
+width:100%;
+margin-left:auto;
+margin-right:auto;
+margin-top:20px;
+height:50px;
+border-radius:0;
+text-align:center;
+border:#D5B7D7 solid 1px;
+font-size:16px;
+color:#656565;
+}
+.login-section button{
+  color:#fff;
+  font-size:20px;
+background: rgb(202,166,206); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(202,166,206,1) 0%, rgba(172,123,182,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(202,166,206,1) 0%,rgba(172,123,182,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(202,166,206,1) 0%,rgba(172,123,182,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#caa6ce', endColorstr='#ac7bb6',GradientType=1 ); /* IE6-9 */
+border-bottom:5px solid #8B5881;
+}
+.login-header{
+  margin-top:5vh;
+  text-align:center;
+}
+.logo-img{
+  margin: 0px auto 25px;
+  width: 40%;
+}
+/* CH06 - Footer */
+
+
+/* CH07 - Miscellaneous */
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+  .login-header{
+    margin-top:5vh;
+    text-align:center;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .login-header{
+    margin-top:5vh;
+    text-align:center;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .login-panel{
+    background-color:#fff;
+    max-width:60%;
+    margin:10px auto;
+    padding:3%;
+    text-align:center;
+    -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .login-panel{
+    background-color:#fff;
+    max-width:90%;
+    margin:10px auto;
+    padding:3%;
+    text-align:center;
+    -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+  }
+  .login-header{
+    margin-top:0;
+    text-align:center;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+  .login-panel{
+    background-color:#fff;
+    max-width:100%;
+    margin:10px auto;
+    padding:3%;
+    text-align:center;
+    -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+  }
+}

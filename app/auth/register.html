@@ -1,0 +1,31 @@
+<section class="login-section">
+  <div class="container">
+    <div class="row">
+      <div class="column-md-6">
+        <div class="login-header">
+<h1 class="lozone-title">LOZONE</h1>
+        </div>
+
+        <div class="login-panel">
+
+          <form class="form-group" ng-submit="authCtrl.register()">
+            <img class="img-responsive logo-img" src="images/logo.svg" />
+            <div class="">
+              <input type="email" class="form-control" placeholder="EMAIL" ng-model="authCtrl.user.email" ng-required="true"ng-minlength="10">
+            </div>
+            <div class="">
+              <input type="password" class="form-control" placeholder="PASSWORD" ng-model="authCtrl.user.password" ng-required="true"ng-minlength="8">
+            </div>
+            <button type="submit" class="">REGISTER</button>
+            <div class="error" ng-show="authCtrl.error">
+              <span>{{authCtrl.error.message}}</span>
+            </div>
+          </form>
+          <a ui-sref="login">Login</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

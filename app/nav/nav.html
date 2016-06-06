@@ -1,0 +1,28 @@
+<nav class="main-nav" ng-controller="navController">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+          <ul>
+            <a ui-sref="profile"><li><img class="nav-logo"src="img/logo.svg"></li></a>
+            <a ui-sref="closets" ui-sref-active="selected"><li>Closets</li></a>
+            <a ui-sref="metacloset" ui-sref-active="selected"><li>MetaCloset</li></a>
+            <a ui-sref="wishlist" ui-sref-active="selected"><li>Wishlist</li></a>
+          </ul>
+        </div>
+        <div class="col-md-2 col-md-offset-2 ">
+          <div class="nav-username">
+              <a ui-sref="profile"><img ng-src="{{getGravatar(profile.$id)}}" alt="" />
+              {{profile.displayName}}</a>
+          </div>
+  <a href="#" ng-click="navCtrl.logout()">LOGOUT</a>
+        </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-12">
+        <div class="nav-breadcrumb">
+            <h1>{{navHeader}}</h1>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</nav>

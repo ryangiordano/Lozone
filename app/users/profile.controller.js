@@ -1,10 +1,12 @@
 angular.module('Lozone')
-.controller('ProfileCtrl', function($state, auth, profile, md5, Users){
+.controller('ProfileCtrl', function($state, auth, profile, md5, Users, $scope){
   var profileCtrl = this;
-  profileCtrl.profile = profile;
-  profileCtrl.getGravatar = Users.getGravatar;
+  $scope.profile = profile;
+  $scope.getGravatar = Users.getGravatar;
+  $scope.navHeader = profile.displayName +"'s Closet";
   profileCtrl.updateProfile = function(){
-    profileCtrl.profile.emailHash = md5.createHash(auth.password.email);
-    profileCtrl.profile.$save();
+    $scope.profile.emailHash = md5.createHash(auth.password.email);
+    $scope.profile.$save();
+    $state.go('closets');
   }
 })

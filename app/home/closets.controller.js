@@ -7,7 +7,8 @@ angular.module('Lozone')
   $scope.navHeader = profile.displayName +"'s Closets";
   closetCtrl.getDisplayName = Users.getDisplayName;
   closetCtrl.newCloset = {
-    name:''
+    name:'',
+    favorite:false
   };
   closetCtrl.openCreate = function(){
     console.log('modal opened');
@@ -40,7 +41,8 @@ angular.module('Lozone')
       $fancyModal.close();
       $state.go('closets');
       closetCtrl.newCloset = {
-        name:''
+        name:'',
+        favorite: false
       };
     });
   };
@@ -51,6 +53,7 @@ angular.module('Lozone')
 
   }
   closetCtrl.addFavorite = function(closet){
-    closet.favorite = true;
+    closet.favorite = !closet.favorite;
+    closetCtrl.closets.$save(closet);
   }
 })

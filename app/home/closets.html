@@ -42,7 +42,7 @@
           <div class="closet-footer">
             <ul>
               <a ng-click="closetCtrl.addFavorite(closet)">
-                <li><img src="img/heart.svg" /></li>
+                <li><img ng-hide="closet.favorite" src="img/heart.svg" /><img ng-show="closet.favorite" src="img/heartfilled.svg" /></li>
               </a>
               <a>
                 <li><img src="img/addclothes.svg" /></li>

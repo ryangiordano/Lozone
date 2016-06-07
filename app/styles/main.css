@@ -20,7 +20,10 @@
 }
 
 /* CH02 - Typography */
-
+a{
+cursor:pointer;
+text-decoration:none;
+}
 body {
     font-family: "Raleway", Arial, sans-serif;
 }
@@ -32,6 +35,7 @@ body {
 
 body,html {
     height: 100%;
+    background-color:#ededed;
 }
 
 section{
@@ -85,6 +89,14 @@ section{
   color:#fff;
   font-weight:bold;
 }
+.subnav{
+  background: rgb(248,217,215); /* Old browsers */
+  background: -moz-linear-gradient(left,  rgba(248,217,215,1) 0%, rgba(193,202,230,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  rgba(248,217,215,1) 0%,rgba(193,202,230,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  rgba(248,217,215,1) 0%,rgba(193,202,230,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8d9d7', endColorstr='#c1cae6',GradientType=1 ); /* IE6-9 */
+padding:15px;
+}
 /* CH05 - Content & Media */
 
 /*login page*/
@@ -109,7 +121,7 @@ position:relative;
   -moz-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
 }
-.login-section input,.login-section button{
+.login-section input,.submit-button, .closet-create input{
 width:100%;
 margin-left:auto;
 margin-right:auto;
@@ -121,7 +133,7 @@ border:#D5B7D7 solid 1px;
 font-size:16px;
 color:#656565;
 }
-.login-section button{
+.submit-button{
   color:#fff;
   font-size:20px;
 background: rgb(202,166,206); /* Old browsers */
@@ -138,6 +150,63 @@ border-bottom:5px solid #8B5881;
 .logo-img{
   margin: 0px auto 25px;
   width: 40%;
+}
+/* closets */
+.closet{
+  background-color:#ffffff;
+  padding:5px 15px;
+  min-height:100px;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.75);
+}
+.closet-wrapper{
+  position:relative;
+  height:100%;
+}
+.closet-stripe{
+  width:15px;
+  height:auto;
+  position:absolute;
+  left:0;
+  background-color:red;
+
+}
+.closet-create button{
+
+}
+.circle-button{
+  display:inline;
+
+}
+.circle-button img{
+height:30px;
+  cursor:pointer;
+
+}
+.closet-footer{
+
+}
+.closet-footer ul{
+padding:10px 0 0 0;
+text-align:right;
+}
+.closet-footer ul li{
+    margin-left:3px;
+    display:inline;
+}
+.closet-footer ul li img{
+  height:25px;
+}
+.closet-colors li{
+  list-style:none;
+  margin-bottom:5px;
+}
+.closet-colors li div{
+  height:20px;
+  width:20px;
+  border:1 px solid black;
+  background-color:red;
 }
 /* CH06 - Footer */
 

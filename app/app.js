@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router'])
+angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancyModal'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('register', {
@@ -42,7 +42,7 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router'])
       .state('closets', {
         url: '/closets',
         templateUrl: 'home/closets.html',
-        controller: 'ClosetCtrl as closetCtrl',
+        controller: 'closetController as closetCtrl',
         resolve: {
           closets: function(Closets) {
             return Closets.$loaded();
@@ -61,6 +61,11 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router'])
             });
           }
         }
+      })
+      .state('closets.create',{
+        url:'/create',
+        templateUrl:'home/create.html',
+        controller: 'closetController as closetCtrl'
       })
       .state('profile', {
         url: '/profile',

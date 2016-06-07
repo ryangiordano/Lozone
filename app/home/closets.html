@@ -1,12 +1,63 @@
 <navbar></navbar>
-<section class="">
+<nav class="subnav">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        Closets go here
+      <div class="col-md-4">
+        <h2>{{navHeader}} <a class="circle-button"ng-click="closetCtrl.openCreate()"><img src="/img/add.svg"></a></h2>
       </div>
     </div>
   </div>
+</nav>
+<section class="closets">
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" ng-repeat="closet in closetCtrl.closets">
+
+        <div class="closet">
+          <div class="closet-stripe">
+
+          </div>
+          <div class="closet-header">
+            <h3 style="text-decoration:underline">{{closet.name}}</h3>
+            <p>4 pieces {{closet.$id}}</p>
+          </div>
+          <div class="closet-content row">
+            <div class="closet-preview-image col-md-6">
+              <img style="height:150px" src="http://www.customink.com/assets/site_content/products/530x542/unisex/orange-cb68a219e2b35bad123a229afac8c110.jpg">
+            </div>
+            <div class="col-md-2">
+              <ul class="closet-colors">
+                <li>
+                  <div></div>
+                </li>
+                <li>
+                  <div> </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="closet-footer">
+            <ul>
+              <a>
+                <li><img src="img/heart.svg" /></li>
+              </a>
+              <a>
+                <li><img src="img/addclothes.svg" /></li>
+              </a>
+              <a>
+                <li><img src="img/editcloset.svg" /></li>
+              </a>
+              <a ng-click="closetCtrl.deleteCloset(closet)">
+                <li><img src="img/delete.svg" /></li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </section>

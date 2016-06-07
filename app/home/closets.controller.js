@@ -50,4 +50,7 @@ angular.module('Lozone')
     };
 
   }
+  closetCtrl.addFavorite = function(closet){
+    closet.favorite = true;
+  }
 })

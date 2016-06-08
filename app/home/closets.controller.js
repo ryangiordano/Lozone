@@ -8,16 +8,18 @@ angular.module('Lozone')
   closetCtrl.getDisplayName = Users.getDisplayName;
   closetCtrl.newCloset = {
     name:'',
-    favorite:false
+    favorite:false,
+    colors:[]
   };
   closetCtrl.openCreate = function(){
-    console.log('modal opened');
     $fancyModal.open({
       templateUrl:'home/create.html',
       controller:'closetController as closetCtrl',
       resolve: {
-        closets: function(Closets) {
-          return Closets.$loaded();
+        closets: function(Closets, Auth) {
+          return Auth.$requireAuth().then(function(auth){
+            return Closets.userCloset(auth.uid).$loaded();
+            });
         },
         profile: function($state, Auth, Users) {
           return Auth.$requireAuth().then(function(auth) {
@@ -36,13 +38,15 @@ angular.module('Lozone')
     });
   }
   closetCtrl.createCloset = function(){
-    console.log('closetCreated');
     closetCtrl.closets.$add(closetCtrl.newCloset).then(function(){
-      $fancyModal.close();
+      if(closetCtrl.newCloset.name == ''){
+
+      }$fancyModal.close();
       $state.go('closets');
       closetCtrl.newCloset = {
         name:'',
-        favorite: false
+        favorite: false,
+        colors:[]
       };
     });
   };

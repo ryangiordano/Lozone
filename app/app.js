@@ -44,8 +44,10 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancy
         templateUrl: 'home/closets.html',
         controller: 'closetController as closetCtrl',
         resolve: {
-          closets: function(Closets) {
-            return Closets.$loaded();
+          closets: function(Closets, Auth) {
+            return Auth.$requireAuth().then(function(auth){
+              return Closets.userClosets(auth.uid).$loaded();
+              });
           },
           profile: function($state, Auth, Users) {
             return Auth.$requireAuth().then(function(auth) {
@@ -61,28 +63,6 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancy
             });
           }
         }
-      })
-      .state('closets.create',{
-        url:'/create',
-        templateUrl:'home/create.html',
-        controller: 'closetController as closetCtrl'
-      })
-      .state('profile', {
-        url: '/profile',
-        resolve: {
-          auth: function($state, Users, Auth) {
-            return Auth.$requireAuth().catch(function() {
-              $state.go('login');
-            });
-          },
-          profile: function(Users, Auth) {
-            return Auth.$requireAuth().then(function(auth) {
-              return Users.getProfile(auth.uid).$loaded();
-            })
-          }
-        },
-        controller: 'ProfileCtrl as profileCtrl',
-        templateUrl: 'users/profile.html'
       })
       .state('metacloset',{
         url: '/metacloset',
@@ -117,6 +97,51 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancy
         },
         templateUrl: 'wishlist/wishlist.html',
         controller: 'wishListController as wishListCtrl'
+      })
+      .state('profile',{
+        url:'/profile',
+        resolve: {
+          auth: function($state, Users, Auth) {
+            return Auth.$requireAuth().catch(function() {
+              $state.go('login');
+            });
+          },
+          profile: function(Users, Auth) {
+            return Auth.$requireAuth().then(function(auth) {
+              return Users.getProfile(auth.uid).$loaded();
+            })
+          }
+        },
+        templateUrl: 'users/profile.html',
+        controller: 'profileController as profileCtrl'
+      })
+      .state('closet-explore',{
+        url:'/closet/{closetId}',
+        templateUrl: 'home/closet-explore.html',
+        controller: 'clothesController as clothesCtrl',
+        resolve:{
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          profile: function(Users, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Users.getProfile(auth.uid).$loaded();
+            });
+          },
+          closet: function($stateParams, Closets, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Closets.userExploreCloset(auth.uid,$stateParams.closetId);
+            });
+
+          },
+          clothes: function($stateParams, Closets, Auth, Clothes){
+            return Auth.$requireAuth().then(function(auth){
+              return Clothes.userClothes(auth.uid);
+            });
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/login');

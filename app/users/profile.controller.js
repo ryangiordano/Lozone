@@ -1,5 +1,5 @@
 angular.module('Lozone')
-.controller('ProfileCtrl', function($state, auth, profile, md5, Users, $scope){
+.controller('profileController', function($state, auth, profile, md5, Users, $scope){
   var profileCtrl = this;
   $scope.profile = profile;
   $scope.getGravatar = Users.getGravatar;
@@ -8,5 +8,6 @@ angular.module('Lozone')
     $scope.profile.emailHash = md5.createHash(auth.password.email);
     $scope.profile.$save();
     $state.go('closets');
+    alert('sex');
   }
 })

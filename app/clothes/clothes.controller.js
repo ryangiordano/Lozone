@@ -101,10 +101,11 @@ clothesCtrl.types = [
     closet: [clothesCtrl.currentClosetId]
   };
   clothesCtrl.addClothes = function(){
+    clothesCtrl.clothingPiece.picture = clothesCtrl.clothingPiece.type.img;
     clothesCtrl.clothes.$add(clothesCtrl.clothingPiece).then(function(){
       clothesCtrl.clothingPiece = {
         name:'',
-        picture: 'img/lozonehead.svg',
+        picture: '',
         type:'',
         favorite: false,
         colors:[],
@@ -113,4 +114,9 @@ clothesCtrl.types = [
       }
     });
   };
+  clothesCtrl.deleteClothes = function(clothing){
+    if(confirm('Are you sure you want to delete this piece of clothing?')){
+      clothesCtrl.clothes.$remove(clothing)
+    }
+  }
 });

@@ -147,3 +147,4 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancy
     $urlRouterProvider.otherwise('/login');
   })
   .constant('FirebaseUrl', 'https://lozone.firebaseio.com/');
+var clothingColors = ['red','blue','yellow','green','beige','purple','orange','pink','brown','black','white'];

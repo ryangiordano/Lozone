@@ -3,11 +3,43 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h2>{{navHeader}} <a class="circle-button"ng-click="clothesCtrl.openCreate()"><img src="/img/add.svg"></a></h2>
+        <h2>{{navHeader}} <a class="circle-button"ng-click="clothesCtrl.showClothingAdder()"><img src="/img/hanger.svg"></a></h2>
       </div>
     </div>
   </div>
 </nav>
+<div class="add-clothing" ng-show="clothesCtrl.clothingCreate">
+  <div class="container">
+    <div class="row">
+                <form class="form-group" name="clothesForm" ng-submit="clothesCtrl.addClothes('clothesForm.$valid')">
+        <div class="col-md-6">
+          <h3>Add an Article of Clothing</h3>
+
+            <input class="form-control"type="text" name="closet-name" placeholder="CLOTHING NAME" ng-model="clothesCtrl.clothingPiece.name"ng-minlength="3" ng-maxlength="24" ng-required novalidate required>
+
+            <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type">
+              <option value=""selected disabled>TYPE</option>
+            </select>
+
+            <select class="" name="colors" ng-options="color.name for color in clothesCtrl.colors" ng-model="clothesCtrl.clothingPiece.colors">
+              <option value=""selected disabled>COLOR</option>
+            </select>
+
+            <input class="form-control"type="text" name="closet-name" placeholder="TAGS" ng-model="clothesCtrl.clothingPiece.tags" ng-minlength="3" ng-maxlength="24" ng-required novalidate required>
+
+
+            <button type="submit"class="" ng-disabled="clothesForm.$invalid">Add Clothing</button>
+
+        </div>
+        <div class="col-md-2">
+          <img ng-src="{{clothesCtrl.clothingPiece.type.img}}" />
+        </div>
+        </form>
+    </div>
+  </div>
+
+
+</div>
 <section class="clothes">
 
   <div class="container">
@@ -16,27 +48,23 @@
         Yo, you need some clothes...
       </p>
       <!-- Begin closet listing -->
-      <div class="col-md-3" ng-repeat="closet in clothesCtrl.clothes">
+      <div class="col-md-3" ng-repeat="clothes in clothesCtrl.clothes">
 
         <div class="closet">
           <div class="closet-stripe">
 
           </div>
           <div class="closet-header">
-            <h3 style="text-decoration:underline"><a ui-sref="closet-explore({closetId:closet.$id})">{{closet.name}}</a></h3>
-            <p>4 pieces {{closet.$id}}</p>
+            <h3 style="text-decoration:underline"><a>{{clothes.name}}</a></h3>
           </div>
           <div class="closet-content row">
             <div class="closet-preview-image col-md-6">
-              <img style="height:150px" src="http://www.customink.com/assets/site_content/products/530x542/unisex/orange-cb68a219e2b35bad123a229afac8c110.jpg">
+              <img style="height:150px" ng-src="{{clothes.picture}}">
             </div>
             <div class="col-md-2">
               <ul class="closet-colors">
                 <li>
                   <div></div>
-                </li>
-                <li>
-                  <div> </div>
                 </li>
               </ul>
             </div>

@@ -1,0 +1,7 @@
+<div class=" clothes-add">
+    <h1>Add an Article of Clothing</h1>
+    <form class="form-group" name="closetForm" ng-submit="closetCtrl.createCloset('closetForm.$valid')">
+      <input class="form-control"type="text" name="closet-name" placeholder="CLOSET NAME" ng-model="closetCtrl.newCloset.name"ng-minlength="3" ng-maxlength="24" ng-required novalidate required>
+      <button type="submit"class="submit-button" ng-disabled="closetForm.$invalid">+</button>
+    </form>
+  </div>

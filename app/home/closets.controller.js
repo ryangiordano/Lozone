@@ -18,7 +18,7 @@ angular.module('Lozone')
       resolve: {
         closets: function(Closets, Auth) {
           return Auth.$requireAuth().then(function(auth){
-            return Closets.userCloset(auth.uid).$loaded();
+            return Closets.userClosets(auth.uid).$loaded();
             });
         },
         profile: function($state, Auth, Users) {

@@ -87,10 +87,14 @@ clothesCtrl.types = [
   ]
   clothesCtrl.clothes = clothes;
   clothesCtrl.closet = closet;
-  clothesCtrl.currentClosetId = closet.$id;
+  $scope.currentClosetId = closet.$id;
   $scope.navHeader = clothesCtrl.closet.name;
+  clothesCtrl.closetClothes = function(){
+    //We want to take the clothes that belong to us and push them to an array of clothes that match up with the current closet.
+    //loop through the clothes, checking to see if they're in the closet;
 
-
+    return closetClothes;
+  }
   clothesCtrl.clothingPiece = {
     name:'',
     picture: 'img/lozonehead.svg',
@@ -98,8 +102,9 @@ clothesCtrl.types = [
     favorite: false,
     colors:[],
     tags: '',
-    closet: [clothesCtrl.currentClosetId]
+    closet: $scope.currentClosetId
   };
+
   clothesCtrl.addClothes = function(){
     clothesCtrl.clothingPiece.picture = clothesCtrl.clothingPiece.type.img;
     clothesCtrl.clothes.$add(clothesCtrl.clothingPiece).then(function(){
@@ -110,13 +115,14 @@ clothesCtrl.types = [
         favorite: false,
         colors:[],
         tags: '',
-        closet: []
+        closet: ''
       }
     });
   };
   clothesCtrl.deleteClothes = function(clothing){
     if(confirm('Are you sure you want to delete this piece of clothing?')){
-      clothesCtrl.clothes.$remove(clothing)
+      clothesCtrl.clothes.$remove(clothing);
     }
-  }
+  };
+
 });

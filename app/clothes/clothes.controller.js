@@ -45,56 +45,12 @@ clothesCtrl.types = [
     img: 'img/stockings.svg',
   }
 ]
-  clothesCtrl.colors = [
-    {
-      name: 'red',
-      hex: '#e03d3d'
-    },
-    {
-      name: 'blue',
-      hex: '#4f50e4'
-    },
-    {
-      name: 'yellow',
-      hex: '#e4e74d'
-    },
-    {
-      name: 'green',
-      hex: '#66b123'
-    },
-    {
-      name: 'orange',
-      hex: '#db952c'
-    },
-    {
-      name: 'purple',
-      hex: '#a151d2'
-    },
-    {
-      name: 'white',
-      hex: '#ffffff'
-    },
-    {
-      name: 'black',
-      hex: '#000000'
-    },
-    {
-      name: 'brown',
-      hex: '#876741'
-    },
 
-
-  ]
   clothesCtrl.clothes = clothes;
   clothesCtrl.closet = closet;
   $scope.currentClosetId = closet.$id;
   $scope.navHeader = clothesCtrl.closet.name;
-  clothesCtrl.closetClothes = function(){
-    //We want to take the clothes that belong to us and push them to an array of clothes that match up with the current closet.
-    //loop through the clothes, checking to see if they're in the closet;
-
-    return closetClothes;
-  }
+  
   clothesCtrl.clothingPiece = {
     name:'',
     picture: 'img/lozonehead.svg',

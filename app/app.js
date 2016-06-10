@@ -44,6 +44,11 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancy
         templateUrl: 'home/closets.html',
         controller: 'closetController as closetCtrl',
         resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
           closets: function(Closets, Auth) {
             return Auth.$requireAuth().then(function(auth){
               return Closets.userClosets(auth.uid).$loaded();
@@ -71,6 +76,16 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancy
             return Auth.$requireAuth().catch(function() {
               $state.go('login');
             });
+          },
+          closets: function(Closets, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Closets.userClosets(auth.uid).$loaded();
+            });
+          },
+          clothes: function(Clothes, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Clothes.userClothes(auth.uid).$loaded();
+            })
           },
           profile: function(Users, Auth) {
             return Auth.$requireAuth().then(function(auth) {

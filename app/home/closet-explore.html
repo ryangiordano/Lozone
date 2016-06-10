@@ -20,7 +20,7 @@
             <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type">
               <option value=""selected disabled>TYPE</option>
             </select>
-            <input class="form-control"type="text" colorpicker="hex" ng-model="clothesCtrl.clothingPiece.colors">
+            <input class="form-control"type="text" colorpicker="hex" ng-model="clothesCtrl.clothingPiece.colors" colorpicker-close-on-select>
             <!-- <select class="" name="colors" ng-options="color.name for color in clothesCtrl.colors" ng-model="clothesCtrl.clothingPiece.colors">
               <option value=""selected disabled>COLOR</option>
             </select> -->
@@ -64,7 +64,7 @@
             <div class="col-md-2">
               <ul class="closet-colors">
                 <li>
-                  <div></div>
+                  <div style="background-color:{{clothes.colors}}"></div>
                 </li>
               </ul>
             </div>

@@ -1,10 +1,55 @@
 <navbar></navbar>
-<section>
+<section class="clothes">
+
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        All your freaking clothes go here.
+      <p ng-show="metaClosetCtrl.clothes">
+        Here are all your freakin' clothes.
+      </p>
+      <!-- Begin closet listing -->
+      <div class="col-md-3" ng-repeat="clothes in metaClosetCtrl.clothes">
+
+        <div class="closet">
+          <div class="closet-stripe">
+
+          </div>
+          <div class="closet-header">
+            <h3 style="text-decoration:underline"><a>{{clothes.name}}</a></h3>
+          </div>
+          <div class="closet-content row">
+            <div class="closet-preview-image col-md-6">
+              <img style="height:150px" ng-src="{{clothes.picture}}">
+            </div>
+            <div class="col-md-2">
+              <ul class="closet-colors">
+                <li>
+                  <div style="background-color:{{clothes.colors}}"></div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="closet-footer">
+            <ul>
+              <a ng-click="clothesCtrl.addFavorite(clothes)">
+                <li><img ng-hide="closet.favorite" src="img/heart.svg" /><img ng-show="closet.favorite" src="img/heartfilled.svg" /></li>
+              </a>
+              <a>
+                <li><img src="img/addclothes.svg" /></li>
+              </a>
+              <a>
+                <li><img src="img/editcloset.svg" /></li>
+              </a>
+              <a ng-click="clothesCtrl.deleteClothes(clothes)">
+                <li><img src="img/delete.svg" /></li>
+              </a>
+            </ul>
+          </div>
+        </div>
       </div>
+      <!-- end closet listing -->
     </div>
   </div>
+
 </section>

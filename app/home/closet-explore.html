@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h2>{{navHeader}} <a class="circle-button"ng-click="clothesCtrl.showClothingAdder()"><img src="/img/hanger.svg"></a></h2>
+        <h2><a ui-sref="closets">Closets </a> > {{navHeader}} <a class="circle-button"ng-click="clothesCtrl.showClothingAdder()"><img src="/img/hanger.svg"></a></h2>
       </div>
     </div>
   </div>
@@ -20,10 +20,10 @@
             <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type">
               <option value=""selected disabled>TYPE</option>
             </select>
-
-            <select class="" name="colors" ng-options="color.name for color in clothesCtrl.colors" ng-model="clothesCtrl.clothingPiece.colors">
+            <input class="form-control"type="text" colorpicker="hex" ng-model="clothesCtrl.clothingPiece.colors">
+            <!-- <select class="" name="colors" ng-options="color.name for color in clothesCtrl.colors" ng-model="clothesCtrl.clothingPiece.colors">
               <option value=""selected disabled>COLOR</option>
-            </select>
+            </select> -->
 
             <input class="form-control"type="text" name="closet-name" placeholder="TAGS" ng-model="clothesCtrl.clothingPiece.tags" ng-minlength="3" ng-maxlength="24" ng-required novalidate required>
 

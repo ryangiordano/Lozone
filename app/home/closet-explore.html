@@ -3,57 +3,66 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h2><a ui-sref="closets">Closets </a> > {{navHeader}} <a class="circle-button"ng-click="clothesCtrl.showClothingAdder()"><img src="/img/hanger.svg"></a></h2>
+        <h2><a ui-sref="closets">Closets </a> > {{navHeader}} <a class="circle-button"slide-toggle="#clothing-adder"><img src="/img/hanger.svg"></a></h2>
       </div>
     </div>
   </div>
 </nav>
-<div class="add-clothing" ng-show="clothesCtrl.clothingCreate">
+<div class="add-clothing slideable" duration=".3s" id="clothing-adder" ng-init="addClothesTab =1">
+  <div class="add-clothing-wrapper">
   <div class="container">
     <div class="row">
-                <form class="form-group" name="clothesForm" ng-submit="clothesCtrl.addClothes('clothesForm.$valid')">
-        <div class="col-md-6">
+      <div class="col-md-12">
+        <ul>
+          <a ng-class="{active:addClothesTab==1}"ng-click="addClothesTab=1"><li>Input clothes</li></a>
+          <a ng-class="{active:addClothesTab==2}"ng-click="addClothesTab =2"><li>Add by Picture</li></a>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+                <form class="form-group" name="clothesForm" ng-show="addClothesTab ==1" ng-submit="clothesCtrl.addClothes('clothesForm.$valid')" no-validate>
+        <div class="col-md-4">
           <h3>Add an Article of Clothing</h3>
 
-            <input class="form-control"type="text" name="closet-name" placeholder="CLOTHING NAME" ng-model="clothesCtrl.clothingPiece.name"ng-minlength="3" ng-maxlength="24" ng-required novalidate required>
+            <input class=""type="text" name="clothes-name" placeholder="CLOTHING NAME" ng-model="clothesCtrl.clothingPiece.name" ng-minlength="3" ng-maxlength="24" no-validate required>
 
-            <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type">
+            <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type" required>
               <option value=""selected disabled>TYPE</option>
             </select>
-            <input class="form-control"type="text" colorpicker="hex" ng-model="clothesCtrl.clothingPiece.colors" colorpicker-close-on-select>
+
+            <input no-validate required class="" type="text" colorpicker="hex" ng-model="clothesCtrl.clothingPiece.colors" colorpicker-close-on-select>
             <!-- <select class="" name="colors" ng-options="color.name for color in clothesCtrl.colors" ng-model="clothesCtrl.clothingPiece.colors">
               <option value=""selected disabled>COLOR</option>
             </select> -->
 
-            <input class="form-control"type="text" name="closet-name" placeholder="TAGS" ng-model="clothesCtrl.clothingPiece.tags" ng-minlength="3" ng-maxlength="24" ng-required novalidate required>
+            <!-- <input class=""type="text" name="tags" placeholder="TAGS" ng-model="clothesCtrl.clothingPiece.tags" ng-minlength="3" ng-maxlength="24" ng-required novalidate> -->
 
 
             <button type="submit"class="" ng-disabled="clothesForm.$invalid">Add Clothing</button>
 
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
           <img ng-src="{{clothesCtrl.clothingPiece.type.img}}" />
         </div>
+        </form>
+        <form class="" action="index.html" method="post">
+          <div class="col-md-6" ng-show="addClothesTab == 2">
+            <h3>Add Clothing By Picture</h3>
+          </div>
         </form>
     </div>
   </div>
 
-
+  </div>
 </div>
 <section class="clothes">
 
   <div class="container">
     <div class="row">
-      <p ng-show="clothesCtrl.clothes">
-        Yo, you need some clothes...
-      </p>
       <!-- Begin closet listing -->
       <div class="col-md-3" ng-repeat="clothes in clothesCtrl.clothes | filter: {closet: currentClosetId} ">
 
         <div class="closet">
-          <div class="closet-stripe">
-
-          </div>
           <div class="closet-header">
             <h3 style="text-decoration:underline"><a>{{clothes.name}}</a></h3>
           </div>

@@ -13,15 +13,16 @@
   <div class="container">
     <div class="row">
       <!-- Begin closet listing -->
-      <div class="col-md-3" ng-repeat="closet in closetCtrl.closets">
+      <div class="col-md-3" ng-repeat="closet in closetCtrl.closets" ng-init='clothesInsideCloset = closetCtrl.clothesInsideCloset(closet.$id)'>
+        <div class="closet-wrapper">
+          <div style="width: 100%;position: absolute;height:25px;background: linear-gradient(to right, {{clothesInsideCloset[1]}} 0%,{{clothesInsideCloset[2]}} 100%);"></div>
 
         <div class="closet">
-          <div class="closet-stripe">
 
-          </div>
+
           <div class="closet-header">
             <h3 style="text-decoration:underline"><a ui-sref="closet-explore({closetId:closet.$id})">{{closet.name}}</a></h3>
-            <p>4 pieces {{closet.$id}}</p>
+            <p>{{clothesInsideCloset[0]}}</p>
           </div>
           <div class="closet-content row">
             <div class="closet-preview-image col-md-6">
@@ -54,6 +55,7 @@
             </ul>
           </div>
         </div>
+      </div>
       </div>
       <!-- end closet listing -->
     </div>

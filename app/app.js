@@ -54,6 +54,11 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancy
               return Closets.userClosets(auth.uid).$loaded();
               });
           },
+          clothes: function(Clothes, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Clothes.userClothes(auth.uid).$loaded();
+            });
+          },
           profile: function($state, Auth, Users) {
             return Auth.$requireAuth().then(function(auth) {
               return Users.getProfile(auth.uid).$loaded().then(function(profile) {
@@ -162,4 +167,3 @@ angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancy
     $urlRouterProvider.otherwise('/login');
   })
   .constant('FirebaseUrl', 'https://lozone.firebaseio.com/');
-var clothingColors = ['red','blue','yellow','green','beige','purple','orange','pink','brown','black','white'];

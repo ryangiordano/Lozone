@@ -15,7 +15,7 @@
       <!-- Begin closet listing -->
       <div class="col-md-3" ng-repeat="closet in closetCtrl.closets" ng-init='clothesInsideCloset = closetCtrl.clothesInsideCloset(closet.$id)'>
         <div class="closet-wrapper">
-          <div style="width: 100%;position: absolute;height:25px;background: linear-gradient(to right, {{clothesInsideCloset[1]}} 0%,{{clothesInsideCloset[2]}} 100%);"></div>
+          <div style="width: 100%;position: absolute;height:25px;background: linear-gradient(to right, {{clothesInsideCloset[1]}} 0%,{{clothesInsideCloset[2]}} 100%); margin-bottom:10px;"></div>
 
         <div class="closet">
 
@@ -49,7 +49,7 @@
               <a>
                 <li><img src="img/editcloset.svg" /></li>
               </a>
-              <a ng-click="closetCtrl.deleteCloset(closet)">
+              <a ng-click="closetCtrl.deleteCloset(closet,clothesInsideCloset[3])">
                 <li><img src="img/delete.svg" /></li>
               </a>
             </ul>

@@ -16,31 +16,44 @@ angular.module('Lozone')
   };
 
   closetCtrl.clothesInsideCloset = function(closetId){
-    var counter = 0, length = (closetCtrl.clothes.length-1),i, counterMessage, color1, color2, colors = [];
+    var counter = 0, length = (closetCtrl.clothes.length-1),i, counterMessage, color1, color2;
     for(i = 0; i <= length; i++){
       if(closetCtrl.clothes[i].closet == closetId){
         counter++;
-        colors.push(closetCtrl.clothes[i].colors);
       }
     }
-    if(counter == 0){
+    if(counter <= 0){
       counterMessage = "An Empty Closet";
-    }else if(counter ==1){
-      counterMessage = counter + ' piece';
-    }else{
-      counterMessage = counter + ' pieces';
-    }
-    var color_length = colors.length-1;
-    if(color_length <=0){
       color1 = '#f7f7f7';
       color2= '#efefef';
-    }else{
+    }else if(counter ==1){
+      counterMessage = counter + ' piece';
       color1 = "#F05A88";
-      color2 = "#6FB8E6"
+      color2 = "#6FB8E6";
+    }else{
+      counterMessage = counter + ' pieces';
+      color1 = "#F05A88";
+      color2 = "#6FB8E6";
     }
-    return [counterMessage, color1, color2];
+    return [counterMessage, color1, color2,counter];
     //return a string x pieces(s)
   }
+  closetCtrl.deleteCloset = function(closet,clothesInsideCloset){
+    if(clothesInsideCloset > 0){
+      if(confirm('Are you sure you want to delete this closet? All clothes inside the closet can still be found in your MetaCloset.')){
+        closetCtrl.closets.$remove(closet);
+      }
+    }else{
+    if(confirm('Are you sure you want to delete this closet?')){
+      closetCtrl.closets.$remove(closet);
+    };
+  }
+  }
+  closetCtrl.addFavorite = function(closet){
+    closet.favorite = !closet.favorite;
+    closetCtrl.closets.$save(closet);
+  }
+
   closetCtrl.openCreate = function(){
     $fancyModal.open({
       templateUrl:'home/create.html',
@@ -85,14 +98,4 @@ angular.module('Lozone')
       };
     });
   };
-  closetCtrl.deleteCloset = function(closet){
-    if(confirm('Are you sure you want to delete this closet?')){
-      closetCtrl.closets.$remove(closet);
-    };
-
-  }
-  closetCtrl.addFavorite = function(closet){
-    closet.favorite = !closet.favorite;
-    closetCtrl.closets.$save(closet);
-  }
 })

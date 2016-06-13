@@ -50,7 +50,7 @@ clothesCtrl.types = [
   clothesCtrl.closet = closet;
   $scope.currentClosetId = closet.$id;
   $scope.navHeader = clothesCtrl.closet.name;
-  
+
   clothesCtrl.clothingPiece = {
     name:'',
     picture: 'img/lozonehead.svg',
@@ -76,6 +76,7 @@ clothesCtrl.types = [
     });
   };
   clothesCtrl.deleteClothes = function(clothing){
+    
     if(confirm('Are you sure you want to delete this piece of clothing?')){
       clothesCtrl.clothes.$remove(clothing);
     }

@@ -55,23 +55,23 @@
 
   </div>
 </div>
-<section class="clothes">
+<section>
 
   <div class="container">
     <div class="row">
       <!-- Begin closet listing -->
       <div class="col-md-3" ng-repeat="clothes in clothesCtrl.clothes | filter: {closet: currentClosetId} ">
 
-        <div class="closet">
-          <div class="closet-header">
+        <div class="clothes">
+          <div class="clothes-header">
             <h3 style="text-decoration:underline"><a>{{clothes.name}}</a></h3>
           </div>
-          <div class="closet-content row">
-            <div class="closet-preview-image col-md-6">
+          <div class="clothes-content row">
+            <div class="clothes-preview-image col-md-6">
               <img style="height:150px" ng-src="{{clothes.picture}}">
             </div>
             <div class="col-md-2">
-              <ul class="closet-colors">
+              <ul class="clothes-colors">
                 <li>
                   <div style="background-color:{{clothes.colors}}"></div>
                 </li>
@@ -80,7 +80,7 @@
 
           </div>
 
-          <div class="closet-footer">
+          <div class="clothes-footer">
             <ul>
               <a ng-click="clothesCtrl.addFavorite(clothes)">
                 <li><img ng-hide="closet.favorite" src="img/heart.svg" /><img ng-show="closet.favorite" src="img/heartfilled.svg" /></li>

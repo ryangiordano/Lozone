@@ -199,6 +199,9 @@ section {
   height:25px;
   background: linear-gradient(to right, #cc9dda 0%,#7EB9E8 100%);
 }
+.closet-header{
+  padding-top:10px;
+}
 .closet-create button {}
 .circle-button {
   display: inline;
@@ -230,7 +233,52 @@ section {
 }
 
 /*clothes*/
-
+.clothes {
+  background-color: #ffffff;
+  margin-top: 25px;
+  padding: 5px 15px;
+  min-height: 100px;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+}
+.clothes h3{
+  margin-top:0;
+}
+.clothes-wrapper {
+  position: relative;
+  height: 100%;
+}
+.clothes-stripe {
+  width: 100%;
+  position: absolute;
+  height:25px;
+  background: linear-gradient(to right, #cc9dda 0%,#7EB9E8 100%);
+}
+.clothes-header{
+  padding-top:10px;
+}
+.clothes-footer {}
+.clothes-footer ul {
+  padding: 10px 0 0 0;
+  text-align: right;
+}
+.clothes-footer ul li {
+  margin-left: 3px;
+  display: inline;
+}
+.clothes-footer ul li img {
+  height: 25px;
+}
+.clothes-colors li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+.clothes-colors li div {
+  height: 20px;
+  width: 20px;
+  border: 1 px solid black;
+}
 .add-clothing {
   -webkit-box-shadow: inset 0px 7px 30px -16px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 0px 7px 30px -16px rgba(0, 0, 0, 0.75);

@@ -107,6 +107,13 @@ section {
 .subnav h2 {
   margin-top: 10px;
 }
+.subnav h2 a{
+  color: #333333;
+  text-decoration:none;
+}
+a.custom-underline:hover{
+  box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black;
+}
 
 /* CH05 - Content & Media */
 
@@ -193,14 +200,35 @@ section {
   position: relative;
   height: 100%;
 }
-.closet-stripe {
+.closet-bar {
   width: 100%;
   position: absolute;
-  height:25px;
-  background: linear-gradient(to right, #cc9dda 0%,#7EB9E8 100%);
+  height: 25px;
+  text-align: right;
 }
-.closet-header{
-  padding-top:10px;
+.closet-bar p {
+  padding-right: 15px;
+  margin-top: 2px;
+}
+.closet-bar.occupied {
+  color: #ffffff;
+}
+.closet-bar.empty {
+  color: #656565;
+}
+.closet-stripe {
+  width: 100%;
+  position: relative;
+  height: 10px;
+  background: linear-gradient(to right, #F05A88 0%, #6FB8E6 100%);
+  margin-bottom: 20px;
+}
+.closet-header {
+  padding-top: 10px;
+}
+.closet-header h3 a, .clothes-header h3 a {
+  color: #333333;
+
 }
 .closet-create button {}
 .circle-button {
@@ -233,6 +261,7 @@ section {
 }
 
 /*clothes*/
+
 .clothes {
   background-color: #ffffff;
   margin-top: 25px;
@@ -242,8 +271,8 @@ section {
   -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
 }
-.clothes h3{
-  margin-top:0;
+.clothes h3 {
+  margin-top: 0;
 }
 .clothes-wrapper {
   position: relative;
@@ -252,11 +281,11 @@ section {
 .clothes-stripe {
   width: 100%;
   position: absolute;
-  height:25px;
-  background: linear-gradient(to right, #cc9dda 0%,#7EB9E8 100%);
+  height: 25px;
+  background: linear-gradient(to right, #cc9dda 0%, #7EB9E8 100%);
 }
-.clothes-header{
-  padding-top:10px;
+.clothes-header {
+  padding-top: 10px;
 }
 .clothes-footer {}
 .clothes-footer ul {
@@ -289,9 +318,9 @@ section {
 .add-clothing ul {
   list-style: none;
   position: relative;
-  padding:0;
-  margin:0;
-  text-align:center;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 .add-clothing ul a {
   text-decoration: none;
@@ -308,9 +337,9 @@ section {
   color: #BB96C5;
   font-weight: bold;
 }
-.add-clothing ul a:hover{
-  background-color: rgba(255,255,255, .5);
-    -webkit-transition: all 5s ease forwards;
+.add-clothing ul a:hover {
+  background-color: rgba(255, 255, 255, .5);
+  -webkit-transition: all 5s ease forwards;
 }
 .add-clothing ul li {
   display: inline;
@@ -318,7 +347,7 @@ section {
 .add-clothing-wrapper {
   padding: 25px;
 }
-.add-clothing input, .add-clothing select{
+.add-clothing input, .add-clothing select {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -330,11 +359,11 @@ section {
   font-size: 16px;
   color: #656565;
 }
-.add-clothing select{
-  text-align:center;
-  text-indent:43%;
+.add-clothing select {
+  text-align: center;
+  text-indent: 43%;
 }
-.add-clothing button{
+.add-clothing button {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -345,13 +374,14 @@ section {
   border: #D5B7D7 solid 1px;
   font-size: 16px;
   color: #ffffff;
-  background-color:#BB96C5;
+  background-color: #BB96C5;
 }
-.add-clothing button[disabled]{
-  background-color:#ededed;
-  color:#646464;
-  cursor:default;
+.add-clothing button[disabled] {
+  background-color: #ededed;
+  color: #646464;
+  cursor: default;
 }
+
 /* CH06 - Footer */
 
 

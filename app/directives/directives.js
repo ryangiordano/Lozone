@@ -1,15 +1,4 @@
 angular.module('Lozone')
-// .directive('closetStriper', function(){
-//   return{
-//     restrict: 'E',
-//     replace:true,
-//     template: '<div style="width: 100%;position: absolute;height:25px;background: linear-gradient(to right, #cc9dda 0%,#7EB9E8 100%);"></div>',
-//     compile: function(scope, element, attrs){
-//       attrs.color1 = (!attrs.color1) ? '#cc9dda' : attrs.color1;
-//       attrs.color2 = (!attrs.color2) ? '#7EB9E8' : attrs.color2;
-//     }
-//   }
-// })
 .directive('slideable',function(){
   return{
     restrict: 'C',

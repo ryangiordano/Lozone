@@ -1,12 +1,24 @@
-<nav class="main-nav" ng-controller="navController">
+<nav class="main-nav" ng-controller="navController as navCtrl">
   <div class="container">
     <div class="row">
         <div class="col-md-8">
           <ul>
-            <a ui-sref="closets"><li><img class="nav-logo"src="img/logo.svg"></li></a>
-            <a ui-sref="closets" ui-sref-active="selected"><li>Closets</li></a>
-            <a ui-sref="metacloset" ui-sref-active="selected"><li>MetaCloset</li></a>
-            <a ui-sref="wishlist" ui-sref-active="selected"><li>Wishlist</li></a>
+            <li><a ui-sref="closets"><img class="nav-logo"src="img/logo.svg"></a></li>
+            <li>              <span ng-mouseover="status.isopen = true" is-open="status.isopen"class="closet-dropdown" uib-dropdown on-toggle="toggled(open)">
+                            <a ui-sref="closets" ui-sref-active="selected" id="closet-dropdown" uib-dropdown-toggle>
+                              Closets
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="closet-dropdown">
+                              <li ng-repeat="closet in closets">
+                                <a href>{{closet.name}}</a>
+                              </li>
+                            </ul>
+                          </span>
+
+          </li>
+
+            <li><a ui-sref="metacloset" ui-sref-active="selected">MetaCloset</a></li>
+            <li><a ui-sref="wishlist" ui-sref-active="selected">Wishlist</a></li>
           </ul>
         </div>
         <div class="col-md-2 col-md-offset-2 ">

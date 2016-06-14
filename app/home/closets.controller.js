@@ -4,6 +4,7 @@ angular.module('Lozone')
   $scope.profile = profile;
   $scope.getGravatar = Users.getGravatar;
   closetCtrl.clothes = clothes;
+  $scope.closets = closets;
   closetCtrl.closets = closets;
   $scope.navHeader = profile.displayName +"'s Closets";
 

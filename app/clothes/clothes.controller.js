@@ -3,13 +3,6 @@ angular.module('Lozone')
   var clothesCtrl = this;
   $scope.profile = profile;
   $scope.getGravatar = Users.getGravatar;
-
-  //show the add clothing box
-  clothesCtrl.clothingCreate =true;
-  clothesCtrl.showClothingAdder = function(){
-    clothesCtrl.clothingCreate = ! clothesCtrl.clothingCreate;
-  };
-
 //array of temporary colors
 clothesCtrl.types = [
   {
@@ -46,6 +39,7 @@ clothesCtrl.types = [
   }
 ]
 
+
   clothesCtrl.clothes = clothes;
   clothesCtrl.closet = closet;
   $scope.currentClosetId = closet.$id;
@@ -76,7 +70,7 @@ clothesCtrl.types = [
     });
   };
   clothesCtrl.deleteClothes = function(clothing){
-    
+
     if(confirm('Are you sure you want to delete this piece of clothing?')){
       clothesCtrl.clothes.$remove(clothing);
     }

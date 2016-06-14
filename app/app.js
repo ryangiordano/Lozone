@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc overview
- * @name angularfireSlackApp
+ * @name Lozone
  * @description
- * # angularfireSlackApp
+ * # Lozone
  *
  * Main module of the application.
  */
-angular.module('Lozone', ['firebase', 'angular-md5', 'ui.router','vesparny.fancyModal','colorpicker.module'])
+angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router','vesparny.fancyModal','colorpicker.module'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('register', {

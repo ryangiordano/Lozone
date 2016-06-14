@@ -2,8 +2,8 @@
 <nav class="subnav">
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <h2><a ui-sref="closets">Closets </a> > {{navHeader}} <a class="circle-button"slide-toggle="#clothing-adder"><img src="/img/hanger.svg"></a></h2>
+      <div class="col-md-12">
+        <h2><a class="custom-underline"ui-sref="closets">Closets </a> <img src="img/arrow.svg"> {{navHeader}} <a class="circle-button"slide-toggle="#clothing-adder"><img src="/img/hanger.svg"></a></h2>
       </div>
     </div>
   </div>
@@ -55,6 +55,10 @@
 
   </div>
 </div>
+<div class="closet-stripe"></div>
+<section ng-hide="clothesCtrl.">
+
+</section>
 <section>
 
   <div class="container">
@@ -64,7 +68,7 @@
 
         <div class="clothes">
           <div class="clothes-header">
-            <h3 style="text-decoration:underline"><a>{{clothes.name}}</a></h3>
+            <h3><a>{{clothes.name}}</a></h3>
           </div>
           <div class="clothes-content row">
             <div class="clothes-preview-image col-md-6">

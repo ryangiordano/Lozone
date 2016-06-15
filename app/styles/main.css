@@ -259,6 +259,9 @@ a.custom-underline:hover{
   width: 20px;
   border: 1 px solid black;
 }
+.closet-footer a,.clothes-footer a{
+  text-decoration:none;
+}
 
 /*clothes*/
 

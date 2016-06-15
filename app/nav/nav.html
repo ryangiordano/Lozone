@@ -3,14 +3,14 @@
     <div class="row">
         <div class="col-md-8">
           <ul>
-            <li><a ui-sref="closets"><img class="nav-logo"src="img/logo.svg"></a></li>
+            <li><a ui-sref="lz"><img class="nav-logo"src="img/logo.svg"></a></li>
             <li>              <span ng-mouseover="status.isopen = true" is-open="status.isopen"class="closet-dropdown" uib-dropdown on-toggle="toggled(open)">
                             <a ui-sref="closets" ui-sref-active="selected" id="closet-dropdown" uib-dropdown-toggle>
                               Closets
                             </a>
                             <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="closet-dropdown">
-                              <li ng-repeat="closet in closets">
-                                <a href>{{closet.name}}</a>
+                              <li ng-repeat="closet in profileCtrl.closets">
+                                <a ui-sref="closet-explore({closetId:closet.$id})">{{closet.name}}</a>
                               </li>
                             </ul>
                           </span>
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-2 col-md-offset-2 ">
           <div class="nav-username">
-              <a ui-sref="profile"><img ng-src="{{getGravatar(profile.$id)}}" alt="" />
+              <a ui-sref="lz"><img ng-src="{{getGravatar(profile.$id)}}" alt="" />
               {{profile.displayName}}</a>
           </div>
   <a href="#" ng-click="navCtrl.logout()">LOGOUT</a>

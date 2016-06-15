@@ -39,7 +39,43 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
           }
         }
       })
+      .state('lz',{
+        url:'/lz',
+        templateUrl:'home/home.html',
+        controller: 'profileController as profileCtrl',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('login');
+            });
+          },
+          closets: function(Closets, Auth) {
+            return Auth.$requireAuth().then(function(auth){
+              return Closets.userClosets(auth.uid).$loaded();
+              });
+          },
+          clothes: function(Clothes, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Clothes.userClothes(auth.uid).$loaded();
+            });
+          },
+          profile: function($state, Auth, Users) {
+            return Auth.$requireAuth().then(function(auth) {
+              return Users.getProfile(auth.uid).$loaded().then(function(profile) {
+                if (profile.displayName) {
+                  return profile;
+                } else {
+                  $state.go('home');
+                }
+              });
+            }, function(error) {
+              $state.go('login');
+            });
+          }
+        }
+      })
       .state('closets', {
+        parent:'lz',
         url: '/closets',
         templateUrl: 'home/closets.html',
         controller: 'closetController as closetCtrl',
@@ -75,6 +111,7 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         }
       })
       .state('metacloset',{
+        parent:'lz',
         url: '/metacloset',
         resolve: {
           auth: function($state, Users, Auth) {
@@ -102,6 +139,7 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         controller: 'MetaClosetController as metaClosetCtrl'
       })
       .state('wishlist',{
+        parent:'lz',
         url:'/wishlist',
         resolve: {
           auth: function($state, Users, Auth) {
@@ -118,24 +156,8 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         templateUrl: 'wishlist/wishlist.html',
         controller: 'wishListController as wishListCtrl'
       })
-      .state('profile',{
-        url:'/profile',
-        resolve: {
-          auth: function($state, Users, Auth) {
-            return Auth.$requireAuth().catch(function() {
-              $state.go('login');
-            });
-          },
-          profile: function(Users, Auth) {
-            return Auth.$requireAuth().then(function(auth) {
-              return Users.getProfile(auth.uid).$loaded();
-            })
-          }
-        },
-        templateUrl: 'users/profile.html',
-        controller: 'profileController as profileCtrl'
-      })
       .state('closet-explore',{
+        parent:'lz',
         url:'/closet/{closetId}',
         templateUrl: 'home/closet-explore.html',
         controller: 'clothesController as clothesCtrl',

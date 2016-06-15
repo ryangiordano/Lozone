@@ -70,10 +70,12 @@ clothesCtrl.types = [
     });
   };
   clothesCtrl.deleteClothes = function(clothing){
-
     if(confirm('Are you sure you want to delete this piece of clothing?')){
       clothesCtrl.clothes.$remove(clothing);
     }
   };
-
+  clothesCtrl.addFavorite = function(clothing){
+    clothing.favorite = !clothing.favorite;
+    clothesCtrl.clothes.$save(clothing);
+  }
 });

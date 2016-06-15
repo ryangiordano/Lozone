@@ -41,4 +41,16 @@ angular.module('Lozone')
       });
     }
   }
+})
+.directive('clothingPiece', function(){
+  return{
+    restrict:'E',
+    templateUrl:'clothes/clothing-piece.html'
+  }
+})
+.directive('mclothingPiece', function(){
+  return{
+    restrict:'E',
+    templateUrl:'metacloset/mclothing-piece.html'
+  }
 });

@@ -1,0 +1,65 @@
+<div class="clothes-form " ng-init="getClosetName = metaClosetCtrl.getClosetName(clothes.closet, clothes)">
+  <div class="row">
+    <div class="col-xs-6 form-column">
+      <img style="height:50px;padding:5px" ng-src="{{clothes.picture}}">
+      <h4><a>{{clothes.name}}</a></h4>
+    </div>
+    <div class="col-xs-3">
+<p class="closet-status"><img ng-hide="clothes.closet" src="img/emptycloset.svg" /><img ng-show="clothes.closet" src="img/closet.svg" />{{getClosetName}}</p>
+    </div>
+    <div class="col-xs-3 form-column">
+        <ul>
+          <a ng-click="metaClosetCtrl.addFavorite(clothes)">
+            <li><img ng-hide="clothes.favorite" src="img/heart.svg" /><img ng-show="clothes.favorite" src="img/heartfilled.svg" /></li>
+          </a>
+          <a>
+            <li><img src="img/addclothes.svg" /></li>
+          </a>
+          <a>
+            <li><img src="img/editcloset.svg" /></li>
+          </a>
+          <a ng-click="metaClosetCtrl.deleteClothes(clothes)">
+            <li><img src="img/delete.svg" /></li>
+          </a>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- <div class="col-md-4">
+    <h3><a>{{clothes.name}}</a></h3><p class="closet-status">{{getClosetName}}</p>
+  </div>
+  <div class="clothes-content col-md-4">
+    <div class="clothes-preview-image col-md-6">
+      <img style="height:50px" ng-src="{{clothes.picture}}">
+    </div>
+    <div class="col-md-2">
+      <ul class="clothes-colors">
+        <li>
+          <div style="background-color:{{clothes.colors}}"></div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="clothes-footer">
+    <ul>
+      <a ng-click="metaClosetCtrl.addFavorite(clothes)">
+        <li><img ng-hide="clothes.favorite" src="img/heart.svg" /><img ng-show="clothes.favorite" src="img/heartfilled.svg" /></li>
+      </a>
+      <a>
+        <li><img src="img/addclothes.svg" /></li>
+      </a>
+      <a>
+        <li><img src="img/editcloset.svg" /></li>
+      </a>
+      <a ng-click="metaClosetCtrl.deleteClothes(clothes)">
+        <li><img src="img/delete.svg" /></li>
+      </a>
+    </ul>
+  </div> -->
+</div>

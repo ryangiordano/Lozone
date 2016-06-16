@@ -6,6 +6,10 @@ angular.module('Lozone')
   $scope.navHeader = profile.displayName +"'s Metacloset";
   metaClosetCtrl.closets = closets;
   metaClosetCtrl.clothes = clothes;
+  metaClosetCtrl.view = 'form';
+  metaClosetCtrl.viewChange = function(){
+    metaClosetCtrl.view = metaClosetCtrl.view == 'tile' ? 'form' : 'tile';
+  }
   var i,length = metaClosetCtrl.closets.length;
   metaClosetCtrl.deleteClothes = function(clothing){
     if(confirm('Are you sure you want to delete this piece of clothing?')){

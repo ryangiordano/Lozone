@@ -2,15 +2,21 @@
 
   <div class="container">
     <div class="row">
-      <p ng-show="metaClosetCtrl.clothes">
-        Here are all your freakin' clothes.
-      </p>
+      <div class="col-sm-12">
+        <button type="button" name="button" ng-click="metaClosetCtrl.viewChange()">Change View</button>
+      </div>
+    </div>
+    <div class="row">
       <!-- Begin closet listing -->
-      <div class="col-md-3" ng-repeat="clothes in metaClosetCtrl.clothes">
-
-<mclothing-piece></mclothing-piece>
+      <div class="col-md-3" ng-repeat="clothes in metaClosetCtrl.clothes" ng-show="metaClosetCtrl.view == 'tile'">
+        <mclothing-piece></mclothing-piece>
       </div>
       <!-- end closet listing -->
+      <!-- Begin form view  -->
+      <div class="col-md-12" ng-repeat="clothes in metaClosetCtrl.clothes" ng-show="metaClosetCtrl.view=='form'">
+        <mclothing-piece-form></mclothing-piece-form>
+      </div>
+      <!-- end form view -->
     </div>
   </div>
 

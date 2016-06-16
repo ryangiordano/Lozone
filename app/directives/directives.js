@@ -53,4 +53,10 @@ angular.module('Lozone')
     restrict:'E',
     templateUrl:'metacloset/mclothing-piece.html'
   }
-});
+})
+.directive('mclothingPieceForm', function(){
+  return{
+    restrict:'E',
+    templateUrl:'metacloset/mclothingpieceform.html'
+  }
+});;

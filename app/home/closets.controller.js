@@ -4,7 +4,6 @@ angular.module('Lozone')
   $scope.profile = profile;
   $scope.getGravatar = Users.getGravatar;
   closetCtrl.clothes = clothes;
-  $scope.closets = closets;
   closetCtrl.closets = closets;
   $scope.navHeader = profile.displayName +"'s Closets";
 
@@ -39,9 +38,21 @@ angular.module('Lozone')
     return [counterMessage, color1, color2,counter];
     //return a string x pieces(s)
   }
-  closetCtrl.deleteCloset = function(closet,clothesInsideCloset){
+  closetCtrl.deleteCloset = function(closet,clothesInsideCloset,closetId){
+    var i, length = closetCtrl.clothes.length-1;
     if(clothesInsideCloset > 0){
       if(confirm('Are you sure you want to delete this closet? All clothes inside the closet can still be found in your MetaCloset.')){
+        for(i=0;i<=length;i++){
+                      console.log('its trying to set to null');
+          if(closetCtrl.clothes[i].closet == closetId){
+
+            closetCtrl.clothes[i].closet = null;
+            closetCtrl.clothes.$save(closetCtrl.clothes[i]);
+          }
+
+        }
+
+
         closetCtrl.closets.$remove(closet);
       }
     }else{
@@ -51,10 +62,10 @@ angular.module('Lozone')
   }
   }
   closetCtrl.addFavorite = function(closet){
+    console.log(closet);
     closet.favorite = !closet.favorite;
     closetCtrl.closets.$save(closet);
   }
-
   closetCtrl.openCreate = function(){
     $fancyModal.open({
       templateUrl:'home/create.html',

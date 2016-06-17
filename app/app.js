@@ -172,11 +172,10 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
               return Users.getProfile(auth.uid).$loaded();
             });
           },
-          closet: function($stateParams, Closets, Auth){
+          closets: function(Closets, Auth){
             return Auth.$requireAuth().then(function(auth){
-              return Closets.userExploreCloset(auth.uid,$stateParams.closetId);
+              return Closets.userClosets(auth.uid).$loaded();
             });
-
           },
           clothes: function($stateParams, Closets, Auth, Clothes){
             return Auth.$requireAuth().then(function(auth){
@@ -184,6 +183,55 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
             });
           }
         }
+      })
+      .state('clothes-info',{
+        parent:'lz',
+          url:'/clothes-info/{clothesId}',
+          controller:'clothesController as clothesCtrl',
+          templateUrl:'clothes/clothes-info.html',
+          resolve:{
+            auth: function($state, Users, Auth){
+              return Auth.$requireAuth().catch(function(){
+                $state.go('login');
+              });
+            },
+            profile: function(Users, Auth){
+              return Auth.$requireAuth().then(function(auth){
+                return Users.getProfile(auth.uid).$loaded();
+              });
+            },
+            clothes: function($stateParams, Closets, Auth, Clothes){
+              return Auth.$requireAuth().then(function(auth){
+                return Clothes.userClothes(auth.uid);
+              });
+            },
+            closets: function(Closets, Auth){
+              return Auth.$requireAuth().then(function(auth){
+                return Closets.userClosets(auth.uid).$loaded();
+              });
+            },
+          }
+      })
+      .state('general',{
+        url:'/general',
+        parent: 'info',
+        templateUrl:'clothes/general.html'
+      })
+      .state('photos',{
+        url:'/photos',
+        parent: 'info',
+        templateUrl:'clothes/photos.html'
+      })
+      .state('social',{
+        url:'/social',
+        parent: 'info',
+        templateUrl:'clothes/social.html'
+      })
+      .state('closet-manage',{
+        url:'/closet-manage',
+        parent: 'info',
+        templateUrl:'clothes/closet-manage.html'
+
       });
 
     $urlRouterProvider.otherwise('/login');

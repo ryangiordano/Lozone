@@ -1,19 +1,20 @@
-<div class="clothes">
-  <div class="clothes-header">
-    <h3><a>{{clothes.name}}</a></h3>
+<div class="clothes-wrapper">
+  <div class="clothes-color-stripe" style="background-color:{{clothes.colors}}"></div>
+
+<div class="clothes" draggable ng-init="getClosetName = clothesCtrl.getClosetName(clothes.closet, clothes)">
+
+  <div class="clothes-header row">
+    <div class="col-xs-12">
+      <span class="title"><a ui-sref="clothes-info({clothesId:clothes.$id})">{{clothes.name}}</a></span>
+    </div>
+    <div class="col-xs-12">
+      <span class="closet-status">{{getClosetName}}</span>
+    </div>
   </div>
   <div class="clothes-content row">
-    <div class="clothes-preview-image col-md-6">
-      <img style="height:150px" ng-src="{{clothes.picture}}">
+    <div class="clothes-preview-image col-xs-12">
+      <img ng-src="{{clothes.picture}}">
     </div>
-    <div class="col-md-2">
-      <ul class="clothes-colors">
-        <li>
-          <div style="background-color:{{clothes.colors}}"></div>
-        </li>
-      </ul>
-    </div>
-
   </div>
 
   <div class="clothes-footer">
@@ -32,4 +33,5 @@
       </a>
     </ul>
   </div>
+</div>
 </div>

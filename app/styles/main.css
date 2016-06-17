@@ -266,6 +266,7 @@ a.custom-underline:hover{
 /*clothes*/
 
 .clothes {
+
   background-color: #ffffff;
   margin-top: 25px;
   padding: 5px 15px;
@@ -273,6 +274,9 @@ a.custom-underline:hover{
   -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+}
+.clothes-wrapper{
+  position:relative;
 }
 .clothes-form{
   background-color:#ffffff;
@@ -296,6 +300,13 @@ a.custom-underline:hover{
 .clothes h3 {
   margin-top: 0;
 }
+.clothes-preview-image{
+    text-align:center;
+}
+.clothes-preview-image img{
+
+  height:100px;
+}
 .clothes-wrapper {
   position: relative;
   height: 100%;
@@ -307,7 +318,15 @@ a.custom-underline:hover{
   background: linear-gradient(to right, #cc9dda 0%, #7EB9E8 100%);
 }
 .clothes-header {
-  padding-top: 10px;
+
+}
+.clothes-header .title{
+font-size:15px;
+
+}
+.closet-status{
+  font-size:12px;
+  text-align:right;
 }
 .clothes-footer ul {
   padding: 10px 0 0 0;
@@ -318,7 +337,16 @@ a.custom-underline:hover{
   display: inline;
 }
 .clothes-footer ul li img {
-  height: 25px;
+  height: 20px;
+}
+.clothes-colors{
+
+}
+.clothes-color-stripe{
+  position:absolute;
+  right:0;
+  height:100%;
+  width:5px;
 }
 .clothes-colors li {
   list-style: none;

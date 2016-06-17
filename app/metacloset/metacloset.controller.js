@@ -6,7 +6,7 @@ angular.module('Lozone')
   $scope.navHeader = profile.displayName +"'s Metacloset";
   metaClosetCtrl.closets = closets;
   metaClosetCtrl.clothes = clothes;
-  metaClosetCtrl.view = 'form';
+  metaClosetCtrl.view = 'tile';
   metaClosetCtrl.viewChange = function(){
     metaClosetCtrl.view = metaClosetCtrl.view == 'tile' ? 'form' : 'tile';
   }

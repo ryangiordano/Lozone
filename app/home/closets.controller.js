@@ -1,5 +1,6 @@
 angular.module('Lozone')
 .controller('closetController',function($state, Auth, Users, profile, closets,$scope,$fancyModal, clothes){
+  console.log('closet controller initiated');
   var closetCtrl =this;
   $scope.profile = profile;
   $scope.getGravatar = Users.getGravatar;

@@ -63,6 +63,7 @@ clothesCtrl.types = [
     for(x=0;x<=closetLength;x++){//loop through closets, if closet isn't found, set to uncloseted
       if(clothesCtrl.closets[x].$id == clothesCtrl.clothing.closet){
         clothesCtrl.closetName = clothesCtrl.closets[x].name;
+        clothesCtrl.closetId = clothesCtrl.closets[x].$id;//this is a shitty fix<<<<<<<<
       }
     }
     clothesCtrl.closetName = !clothesCtrl.closetName ? "Uncloseted" : clothesCtrl.closetName;
@@ -74,6 +75,7 @@ clothesCtrl.types = [
   }
   if($state.params.clothesId){
     clothesCtrl.clothingGetter($state.params.clothesId);
+    console.log(clothesCtrl.clothing)
     $scope.navHeader = clothesCtrl.clothing.name;
   }
 

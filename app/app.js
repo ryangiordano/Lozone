@@ -213,23 +213,23 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
           }
       })
       .state('general',{
+        parent: 'clothes-info',
         url:'/general',
-        parent: 'info',
         templateUrl:'clothes/general.html'
       })
       .state('photos',{
+        parent:'clothes-info',
         url:'/photos',
-        parent: 'info',
         templateUrl:'clothes/photos.html'
       })
       .state('social',{
+        parent:'clothes-info',
         url:'/social',
-        parent: 'info',
         templateUrl:'clothes/social.html'
       })
       .state('closet-manage',{
+        parent:'clothes-info',
         url:'/closet-manage',
-        parent: 'info',
         templateUrl:'clothes/closet-manage.html'
 
       });

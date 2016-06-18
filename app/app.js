@@ -210,7 +210,8 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
                 return Closets.userClosets(auth.uid).$loaded();
               });
             },
-          }
+          },
+          redirectTo: 'general'
       })
       .state('general',{
         parent: 'clothes-info',
@@ -236,4 +237,13 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
 
     $urlRouterProvider.otherwise('/login');
   })
-  .constant('FirebaseUrl', 'https://lozone.firebaseio.com/');
+  .constant('FirebaseUrl', 'https://lozone.firebaseio.com/')
+  .run(['$rootScope','$state', function($rootScope,$state){
+    //adds a 'redirectTo' property to state that redirects to the value supplied
+    $rootScope.$on('$stateChangeStart',function(evt,to,params){
+      if(to.redirectTo){
+        evt.preventDefault();
+        $state.go(to.redirectTo, params,{location:'replace'})
+      }
+    });
+  }])

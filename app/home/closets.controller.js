@@ -17,9 +17,10 @@ angular.module('Lozone')
   };
 
   closetCtrl.clothesInsideCloset = function(closetId){
-    var counter = 0, length = (closetCtrl.clothes.length-1),i, counterMessage, color1, color2;
+    var counter = 0, length = (closetCtrl.clothes.length-1),i, counterMessage, color1, color2,clothes=[];
     for(i = 0; i <= length; i++){
       if(closetCtrl.clothes[i].closet == closetId){
+        clothes.push(closetCtrl.clothes[i]);
         counter++;
       }
     }
@@ -36,7 +37,9 @@ angular.module('Lozone')
       color1 = "#F05A88";
       color2 = "#6FB8E6";
     }
-    return [counterMessage, color1, color2,counter];
+    console.log(clothes);
+
+    return [counterMessage, color1, color2,counter,clothes];
     //return a string x pieces(s)
   }
   closetCtrl.deleteCloset = function(closet,clothesInsideCloset,closetId){

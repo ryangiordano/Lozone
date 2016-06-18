@@ -28,8 +28,13 @@
 
             </div>
             <div class="closet-content row">
-              <div class="closet-preview-image col-md-6">
-                <img style="height:150px" src="img/lozonehead.svg">
+              <div class="closet-preview-image col-md-12">
+                <div class="row">
+                  <div class="col-xs-3"ng-repeat="clothing in clothesInsideCloset[4]">
+                    <img class="img-responsive"ng-src="{{clothing.picture}}">
+                  </div>
+                </div>
+                <img ng-hide="clothesInsideCloset[3]"style="height:150px" src="img/lozonehead.svg">
               </div>
               <div class="col-md-2">
                 <ul class="closet-colors">

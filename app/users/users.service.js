@@ -1,7 +1,7 @@
 angular.module('Lozone')
 .factory('Users', function($firebaseArray, $firebaseObject, FirebaseUrl){
 
-  var usersRef = new Firebase(FirebaseUrl + "users");
+  var usersRef = firebase.database().ref("users");
   var users = $firebaseArray(usersRef);
   var Users = {
     getProfile: function(uid){

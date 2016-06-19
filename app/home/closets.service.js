@@ -1,6 +1,6 @@
 angular.module('Lozone')
 .factory('Closets', function($firebaseArray, FirebaseUrl, $firebaseObject){
-  var closetRef = new Firebase(FirebaseUrl + "closets");
+    var closetRef = firebase.database().ref("closets");
   // return{
   //   forCloset: function(closetId){
   //     return $firebaseArray(ref.child(closetId))

@@ -237,7 +237,7 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
 
     $urlRouterProvider.otherwise('/login');
   })
-  .constant('FirebaseUrl', 'https://lozone.firebaseio.com/')
+  .constant('FirebaseUrl', 'https://lozone-2dc89.firebaseio.com')
   .run(['$rootScope','$state', function($rootScope,$state){
     //adds a 'redirectTo' property to state that redirects to the value supplied
     $rootScope.$on('$stateChangeStart',function(evt,to,params){

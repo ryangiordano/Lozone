@@ -16,7 +16,7 @@ angular.module('Lozone')
 
     $scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
   navCtrl.logout = function(){
-    Auth.$unauth();
+    Auth.$signOut();
     $state.go('login');
   }
 })

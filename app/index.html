@@ -40,6 +40,19 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBGxHPd8OGZ-vUPXhl-BBiNjWrYBfVN5vE",
+    authDomain: "lozone.firebaseapp.com",
+    databaseURL: "https://lozone.firebaseio.com",
+    storageBucket: "project-5405021531501953040.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+    
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>

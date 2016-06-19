@@ -17,7 +17,7 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         controller: 'AuthCtrl as authCtrl',
         resolve: {
           requireNoAuth: function($state, Auth) {
-            return Auth.$requireAuth().then(function(auth) {
+            return Auth.$requireSignIn().then(function(auth) {
               $state.go('login');
             }, function(error) {
               return;
@@ -31,7 +31,7 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         controller: 'AuthCtrl as authCtrl',
         resolve: {
           requireNoAuth: function($state, Auth) {
-            return Auth.$requireAuth().then(function(auth) {
+            return Auth.$requireSignIn().then(function(auth) {
               $state.go('closets');
             }, function(error) {
               return;
@@ -45,22 +45,22 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         controller: 'profileController as profileCtrl',
         resolve: {
           auth: function($state, Users, Auth){
-            return Auth.$requireAuth().catch(function(){
+            return Auth.$requireSignIn().catch(function(){
               $state.go('login');
             });
           },
           closets: function(Closets, Auth) {
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Closets.userClosets(auth.uid).$loaded();
               });
           },
           clothes: function(Clothes, Auth){
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Clothes.userClothes(auth.uid).$loaded();
             });
           },
           profile: function($state, Auth, Users) {
-            return Auth.$requireAuth().then(function(auth) {
+            return Auth.$requireSignIn().then(function(auth) {
               return Users.getProfile(auth.uid).$loaded().then(function(profile) {
                 if (profile.displayName) {
                   return profile;
@@ -81,22 +81,22 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         controller: 'closetController as closetCtrl',
         resolve: {
           auth: function($state, Users, Auth){
-            return Auth.$requireAuth().catch(function(){
+            return Auth.$requireSignIn().catch(function(){
               $state.go('login');
             });
           },
           closets: function(Closets, Auth) {
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Closets.userClosets(auth.uid).$loaded();
               });
           },
           clothes: function(Clothes, Auth){
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Clothes.userClothes(auth.uid).$loaded();
             });
           },
           profile: function($state, Auth, Users) {
-            return Auth.$requireAuth().then(function(auth) {
+            return Auth.$requireSignIn().then(function(auth) {
               return Users.getProfile(auth.uid).$loaded().then(function(profile) {
                 if (profile.displayName) {
                   return profile;
@@ -115,22 +115,22 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         url: '/metacloset',
         resolve: {
           auth: function($state, Users, Auth) {
-            return Auth.$requireAuth().catch(function() {
+            return Auth.$requireSignIn().catch(function() {
               $state.go('login');
             });
           },
           closets: function(Closets, Auth){
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Closets.userClosets(auth.uid).$loaded();
             });
           },
           clothes: function(Clothes, Auth){
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Clothes.userClothes(auth.uid).$loaded();
             })
           },
           profile: function(Users, Auth) {
-            return Auth.$requireAuth().then(function(auth) {
+            return Auth.$requireSignIn().then(function(auth) {
               return Users.getProfile(auth.uid).$loaded();
             })
           }
@@ -143,12 +143,12 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         url:'/wishlist',
         resolve: {
           auth: function($state, Users, Auth) {
-            return Auth.$requireAuth().catch(function() {
+            return Auth.$requireSignIn().catch(function() {
               $state.go('login');
             });
           },
           profile: function(Users, Auth) {
-            return Auth.$requireAuth().then(function(auth) {
+            return Auth.$requireSignIn().then(function(auth) {
               return Users.getProfile(auth.uid).$loaded();
             })
           }
@@ -163,22 +163,22 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         controller: 'clothesController as clothesCtrl',
         resolve:{
           auth: function($state, Users, Auth){
-            return Auth.$requireAuth().catch(function(){
+            return Auth.$requireSignIn().catch(function(){
               $state.go('login');
             });
           },
           profile: function(Users, Auth){
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Users.getProfile(auth.uid).$loaded();
             });
           },
           closets: function(Closets, Auth){
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Closets.userClosets(auth.uid).$loaded();
             });
           },
           clothes: function($stateParams, Closets, Auth, Clothes){
-            return Auth.$requireAuth().then(function(auth){
+            return Auth.$requireSignIn().then(function(auth){
               return Clothes.userClothes(auth.uid);
             });
           }
@@ -191,22 +191,22 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
           templateUrl:'clothes/clothes-info.html',
           resolve:{
             auth: function($state, Users, Auth){
-              return Auth.$requireAuth().catch(function(){
+              return Auth.$requireSignIn().catch(function(){
                 $state.go('login');
               });
             },
             profile: function(Users, Auth){
-              return Auth.$requireAuth().then(function(auth){
+              return Auth.$requireSignIn().then(function(auth){
                 return Users.getProfile(auth.uid).$loaded();
               });
             },
             clothes: function($stateParams, Closets, Auth, Clothes){
-              return Auth.$requireAuth().then(function(auth){
+              return Auth.$requireSignIn().then(function(auth){
                 return Clothes.userClothes(auth.uid);
               });
             },
             closets: function(Closets, Auth){
-              return Auth.$requireAuth().then(function(auth){
+              return Auth.$requireSignIn().then(function(auth){
                 return Closets.userClosets(auth.uid).$loaded();
               });
             },

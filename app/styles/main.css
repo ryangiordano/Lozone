@@ -197,6 +197,7 @@ a.custom-underline:hover{
   -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+
 }
 .closet-wrapper {
   position: relative;
@@ -217,6 +218,10 @@ a.custom-underline:hover{
 }
 .closet-bar.empty {
   color: #656565;
+}
+.closet-content{
+  height:150px;
+  overflow:hidden;
 }
 .closet-stripe {
   width: 100%;

@@ -14,5 +14,9 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "Lozone"
+  "moduleName": "Lozone",
+  "resolutions": {
+    "firebase": "^3.0.5",
+    "angularfire": "^2.0.1"
+  }
 }

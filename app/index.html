@@ -26,32 +26,16 @@
 
 
 
-          <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-          <script>
-            // Initialize Firebase
-            var config = {
-              apiKey: "AIzaSyBGxHPd8OGZ-vUPXhl-BBiNjWrYBfVN5vE",
-              authDomain: "lozone.firebaseapp.com",
-              databaseURL: "https://lozone.firebaseio.com",
-              storageBucket: "project-5405021531501953040.appspot.com",
-            };
-            firebase.initializeApp(config);
-          </script>
+
 
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-
-
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <!-- <script src="bower_components/firebase/firebase.js"></script>
-    <script src="bower_components/angularfire/dist/angularfire.js"></script> -->
-    <!-- Firebase -->
-
-<!-- AngularFire -->
-<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-md5/angular-md5.js"></script>
     <script src="bower_components/angular-fancy-modal/dist/angular-fancy-modal.js"></script>
@@ -62,7 +46,16 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="app.js"></script>
-
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBGxHPd8OGZ-vUPXhl-BBiNjWrYBfVN5vE",
+        authDomain: "lozone.firebaseapp.com",
+        databaseURL: "https://lozone.firebaseio.com",
+        storageBucket: "project-5405021531501953040.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
     <!-- Controllers -->
 <script type="text/javascript" src="auth/auth.controller.js"></script>
 <script type="text/javascript" src="users/profile.controller.js"></script>
@@ -78,6 +71,7 @@
 <script type="text/javascript" src="metacloset/metacloset.service.js"></script>
 <script type="text/javascript" src="wishlist/wishlist.service.js"></script>
 <script type="text/javascript" src="clothes/clothes.service.js"></script>
+<script type="text/javascript" src="clothes/picture.service.js"></script>
     <!-- directives -->
     <script type="text/javascript" src="directives/directives.js"></script>
     <!-- endbuild -->

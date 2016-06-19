@@ -76,17 +76,17 @@ angular.module('Lozone')
       controller:'closetController as closetCtrl',
       resolve: {
         closets: function(Closets, Auth) {
-          return Auth.$requireAuth().then(function(auth){
+          return Auth.$requireSignIn().then(function(auth){
             return Closets.userClosets(auth.uid).$loaded();
             });
         },
         clothes: function(Clothes, Auth){
-          return Auth.$requireAuth().then(function(auth){
+          return Auth.$requireSignIn().then(function(auth){
             return Clothes.userClothes(auth.uid).$loaded();
           });
         },
         profile: function($state, Auth, Users) {
-          return Auth.$requireAuth().then(function(auth) {
+          return Auth.$requireSignIn().then(function(auth) {
             return Users.getProfile(auth.uid).$loaded().then(function(profile) {
               if (profile.displayName) {
                 return profile;

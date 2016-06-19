@@ -59,9 +59,10 @@
 <section ng-hide="true">
 <!-- Have some sort of "add clothes!" message" -->
 </section>
-<section>
+<section class="closet-explore">
 
   <div class="container">
+    <img ng-src="{{clothesCtrl.path}}"  />
     <div class="row">
       <!-- Begin closet listing -->
       <div class="col-md-2" ng-repeat="clothes in clothesCtrl.clothes | filter: {closet: currentClosetId} ">

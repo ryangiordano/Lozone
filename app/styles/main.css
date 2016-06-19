@@ -34,7 +34,7 @@ body {
 
 body, html {
   height: 100%;
-  background-color: #ededed;
+
 }
 section {
   min-height: 100%;
@@ -199,6 +199,20 @@ a.custom-underline:hover{
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
 
 }
+.closets{
+  background-color: #ededed;
+}
+.closet-explore{
+  background: rgba(217,217,217,1);
+  background: -moz-linear-gradient(top, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(217,217,217,1)), color-stop(100%, rgba(235,235,235,1)));
+  background: -webkit-linear-gradient(top, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
+  background: -o-linear-gradient(top, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
+  background: -ms-linear-gradient(top, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
+  background: linear-gradient(to bottom, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#ebebeb', GradientType=0 );
+}
+
 .closet-wrapper {
   position: relative;
   height: 100%;
@@ -228,10 +242,12 @@ a.custom-underline:hover{
   position: relative;
   height: 10px;
   background: linear-gradient(to right, #F05A88 0%, #6FB8E6 100%);
-  margin-bottom: 20px;
 }
 .closet-header {
   padding-top: 10px;
+}
+.closet-preview-image{
+  text-align:center
 }
 .closet-header h3 a, .clothes-header h3 a {
   color: #333333;
@@ -367,6 +383,7 @@ font-size:15px;
 .clothing-inspector{
   background-color:#ffffff;
   padding:20px;
+  margin-top:50px;
 }
 .clothing-inspector ul{
   padding: 10px 0 0 0;

@@ -38,7 +38,12 @@ clothesCtrl.types = [
     img: 'img/stockings.svg',
   }
 ]
-
+var storageRef = firebase.storage().ref();
+var imagesRef= storageRef.child('images');
+var fileName = 'hat.jpg';
+var spaceRef = imagesRef.child(fileName);
+clothesCtrl.path = spaceRef.fullPath;
+console.log(clothesCtrl.path);
 
 
   clothesCtrl.clothes = clothes;
@@ -49,7 +54,6 @@ clothesCtrl.types = [
     for(i = 0; i<=length; i++){//search for the closet by parameter id
       if(clothesCtrl.closets[i].$id == stateParams){
         return clothesCtrl.closet = clothesCtrl.closets[i];
-        console.log('closet logged successfully');
       }
     }
   }
@@ -75,7 +79,6 @@ clothesCtrl.types = [
   }
   if($state.params.clothesId){
     clothesCtrl.clothingGetter($state.params.clothesId);
-    console.log(clothesCtrl.clothing)
     $scope.navHeader = clothesCtrl.clothing.name;
   }
 

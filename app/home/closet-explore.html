@@ -23,7 +23,19 @@
                 <form class="form-group" name="clothesForm" ng-show="addClothesTab ==1" ng-submit="clothesCtrl.addClothes('clothesForm.$valid')" no-validate>
         <div class="col-md-4">
           <h3>Add an Article of Clothing</h3>
-
+          <input ngf-select ng-model="picFile" name="file" ngf-accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" type="file">
+          <i ng-show="picFile.file.$error.required">*required</i><br>
+<i ng-show="picFile.file.$error.maxSize">File too large
+    {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+          <img ng-show="clothesForm.file.$valid." ngf-thumbnail="picFile">
+          <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+          <br>
+<span class="progress" ng-show="picFile.progress >= 0">
+  <div style="width:{{picFile.progress}}%"
+      ng-bind="picFile.progress + '%'"></div>
+</span>
+<span ng-show="picFile.result">Upload Successful</span>
+<span class="err" ng-show="errorMsg">{{errorMsg}}</span>
             <input class=""type="text" name="clothes-name" placeholder="CLOTHING NAME" ng-model="clothesCtrl.clothingPiece.name" ng-minlength="3" ng-maxlength="24" no-validate required>
 
             <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type" required>

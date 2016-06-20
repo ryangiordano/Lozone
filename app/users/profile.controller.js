@@ -7,8 +7,8 @@ angular.module('Lozone')
   profileCtrl.closets = closets;
   $scope.navHeader = profile.displayName +"'s Closet";
   profileCtrl.updateProfile = function(){
-    $scope.profile.emailHash = md5.createHash(auth.password.email);
+    $scope.profile.emailHash = md5.createHash(auth.email);
     $scope.profile.$save();
-    $state.go('home.closets');
+    $state.go('closets');
   }
 })

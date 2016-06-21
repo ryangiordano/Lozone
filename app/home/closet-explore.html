@@ -30,7 +30,7 @@
           <img ng-show="clothesForm.file.$valid." ngf-thumbnail="picFile">
           <button ng-click="picFile = null" ng-show="picFile">Remove</button>
           <br>
-<span class="progress" ng-show="picFile.progress >= 0">
+<span class="progress" ng-show=" picFile.progress >= 0">
   <div style="width:{{picFile.progress}}%"
       ng-bind="picFile.progress + '%'"></div>
 </span>

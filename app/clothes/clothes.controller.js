@@ -1,9 +1,9 @@
 angular.module('Lozone')
 .controller('clothesController', function($state, Auth, Users, profile, $scope, $fancyModal, clothes,closets){
   var clothesCtrl = this;
-  $scope.profile = profile;
-  $scope.getGravatar = Users.getGravatar;
-//array of temporary colors
+
+
+
 clothesCtrl.types = [
   {
     name: 'shirt',
@@ -38,12 +38,26 @@ clothesCtrl.types = [
     img: 'img/stockings.svg',
   }
 ]
+//Firebase Storage//
+$scope.handleFiles = function(event){
+  console.log(event.target.files);
+}
 var storageRef = firebase.storage().ref();
-var imagesRef= storageRef.child('images');
-var fileName = 'hat.jpg';
-var spaceRef = imagesRef.child(fileName);
-clothesCtrl.path = spaceRef.fullPath;
-console.log(clothesCtrl.path);
+var file = $scope.myFile
+clothesCtrl.uploader = function(file){
+    file.name = "newName";
+  console.log("uploaded "+file);
+
+  var uploadTask = storageRef.child('images/'+file).put(file);
+}
+clothesCtrl.uploadedPicture={
+  file:""
+}
+
+
+
+
+//Firebase Storage End//
 
 
   clothesCtrl.clothes = clothes;
@@ -95,6 +109,7 @@ console.log(clothesCtrl.path);
 
   clothesCtrl.addClothes = function(){
     clothesCtrl.clothingPiece.picture = clothesCtrl.clothingPiece.type.img;
+
     clothesCtrl.clothes.$add(clothesCtrl.clothingPiece).then(function(){
       clothesCtrl.clothingPiece = {
         name:'',

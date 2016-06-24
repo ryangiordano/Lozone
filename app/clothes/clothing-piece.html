@@ -5,7 +5,7 @@
 
   <div class="clothes-header row">
     <div class="col-xs-12">
-      <span class="title"><a ui-sref="clothes-info({clothesId:clothes.$id})">{{clothes.name}}</a></span>
+      <span class="title"><a ui-sref="clothes-info({clothesId:clothes.$id})">{{clothes.type.name}}</a></span>
     </div>
     <div class="col-xs-12">
       <span class="closet-status">{{getClosetName}}</span>
@@ -13,7 +13,7 @@
   </div>
   <div class="clothes-content row">
     <div class="clothes-preview-image col-xs-12">
-      <img ng-src="{{clothes.picture}}">
+      <img height="50px" ng-src="{{clothes.picture}}">
     </div>
   </div>
 

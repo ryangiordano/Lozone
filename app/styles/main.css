@@ -470,6 +470,12 @@ font-size:15px;
   color: #646464;
   cursor: default;
 }
+.add-clothing input.color-picker-input{
+  border-radius:50px;
+  background-color:transparent;
+  color:transparent;
+  border:solid 3px #ffffff;
+}
 
 /* CH06 - Footer */
 

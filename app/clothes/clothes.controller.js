@@ -1,62 +1,96 @@
 angular.module('Lozone')
-.controller('clothesController', function($state, Auth, Users, profile, $scope, $fancyModal, clothes,closets){
+.controller('clothesController', function($state, Auth, Users, profile, $scope, $fancyModal, clothes,closets,Upload, uploader){
   var clothesCtrl = this;
-
+  $scope.uploader = uploader;
+  console.log($scope.uploader)
 
 
 clothesCtrl.types = [
-  {
-    name: 'shirt',
-    img: 'img/shirt.svg',
-  },
-  {
-    name: 'pants',
-    img: 'img/pants.svg',
-  },
-  {
-    name: 'skirt',
-    img: 'img/skirt.svg',
-  },
-  {
-    name: 'shoes',
-    img: 'img/shoes.svg',
-  },
-  {
-    name: 'dress',
-    img: 'img/dress.svg',
-  },
-  {
-    name: 'scarf',
-    img: 'img/scarf.svg',
-  },
-  {
-    name: 'accessory',
-    img: 'img/rings.svg',
-  },
-  {
-    name: 'socks',
-    img: 'img/stockings.svg',
-  }
+    {name: 'shirt'},
+    {name: 'pants'},
+    {name: 'skirt'},
+    {name: 'shoes'},
+    {name: 'dress'},
+    {name: 'scarf'},
+    {name: 'accessory'},
+    {name: 'socks'},
+    {name: 'hat'}
 ]
+randomString = function(length){
+  var text = "";
+  var textPool = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for(var i = 0;i<length;i++){
+    text+= textPool.charAt(Math.floor(Math.random()*textPool.length))
+  }
+  return text;
+}
+
+
 //Firebase Storage//
+//regular upload
+$scope.uploadPic = function(file) {
+  var pictureName = randomString(15);
+  var uploadTask = $scope.uploader.child('/images/'+pictureName).put(file);
+  uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+  function(snapshot){
+    $scope.progress = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+    console.log('Upload is '+$scope.progress+ '% done');
+
+  }, function(error){
+    switch(error.code){
+      case 'storage/unauthorized':
+      //no permission
+      break;
+      case 'storage/canceled':
+      //canceled upload
+      break;
+      case 'storage/unknown':
+      //unknown error
+      break;
+    }
+  }, function(){
+    //after the file is uploaded successfully, we get a snapshot of the download file
+    var downloadURL = uploadTask.snapshot.downloadURL;
+    //run clothing upload code
+    clothesCtrl.addClothes(downloadURL,pictureName,$scope.currentClosetId);
+  });
+}
+clothesCtrl.clothingPiece = {
+  picture: 'img/lozonehead.svg',
+  pictureName: '',
+  type:'',
+  favorite: false,
+  colors:[],
+  tags: '',
+  closet: $scope.currentClosetId
+};
+clothesCtrl.addClothes = function(downloadURL,pictureName,closetId){
+  clothesCtrl.clothingPiece.picture = downloadURL;
+  clothesCtrl.clothingPiece.closet = closetId;
+  clothesCtrl.clothingPiece.pictureName = pictureName;
+  clothesCtrl.clothes.$add(clothesCtrl.clothingPiece).then(function(){
+    clothesCtrl.clothingPiece = {
+      picture: 'img/lozonehead.svg',
+      pictureName:'',
+      type:'',
+      favorite: false,
+      colors:[],
+      tags: '',
+      closet: ''
+    }
+    downloadURL ='';
+    $scope.picFile = null;
+  },function(error){
+    //handle us some errors
+    console.log(error);
+  });
+};
+
+
+//fireBase upload//
 $scope.handleFiles = function(event){
-  console.log(event.target.files);
+  console.log($scope.picFile);
 }
-var storageRef = firebase.storage().ref();
-var file = $scope.myFile
-clothesCtrl.uploader = function(file){
-    file.name = "newName";
-  console.log("uploaded "+file);
-
-  var uploadTask = storageRef.child('images/'+file).put(file);
-}
-clothesCtrl.uploadedPicture={
-  file:""
-}
-
-
-
-
 //Firebase Storage End//
 
 
@@ -97,34 +131,16 @@ clothesCtrl.uploadedPicture={
   }
 
 
-  clothesCtrl.clothingPiece = {
-    name:'',
-    picture: 'img/lozonehead.svg',
-    type:'',
-    favorite: false,
-    colors:[],
-    tags: '',
-    closet: $scope.currentClosetId
-  };
 
-  clothesCtrl.addClothes = function(){
-    clothesCtrl.clothingPiece.picture = clothesCtrl.clothingPiece.type.img;
-
-    clothesCtrl.clothes.$add(clothesCtrl.clothingPiece).then(function(){
-      clothesCtrl.clothingPiece = {
-        name:'',
-        picture: '',
-        type:'',
-        favorite: false,
-        colors:[],
-        tags: '',
-        closet: ''
-      }
-    });
-  };
   clothesCtrl.deleteClothes = function(clothing){
     if(confirm('Are you sure you want to delete this piece of clothing?')){
-      clothesCtrl.clothes.$remove(clothing);
+      $scope.uploader.child('/images/'+clothing.pictureName).delete().then(function(){
+        //file deleted successfully, let's kill the data too;
+          clothesCtrl.clothes.$remove(clothing);
+      },function(error){
+        console.log(error);
+      });
+
     }
   };
   clothesCtrl.addFavorite = function(clothing){

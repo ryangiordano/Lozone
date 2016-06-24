@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router','vesparny.fancyModal','colorpicker.module'])
+angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router','vesparny.fancyModal','colorpicker.module','ngFileUpload'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('register', {
@@ -180,7 +180,12 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
           clothes: function($stateParams, Closets, Auth, Clothes){
             return Auth.$requireSignIn().then(function(auth){
               return Clothes.userClothes(auth.uid);
-            });
+            })
+          },
+          uploader: function(Auth,UploadPicture){
+            return Auth.$requireSignIn().then(function(auth){
+              return UploadPicture.userPictures(auth.uid);
+            })
           }
         }
       })
@@ -210,6 +215,11 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
                 return Closets.userClosets(auth.uid).$loaded();
               });
             },
+            uploader: function(Auth,UploadPicture){
+              return Auth.$requireSignIn().then(function(auth){
+                return UploadPicture.userPictures(auth.uid);
+              })
+            }
           },
           redirectTo: 'general'
       })

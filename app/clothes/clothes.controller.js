@@ -5,16 +5,43 @@ angular.module('Lozone')
   console.log($scope.uploader)
 
 
+$scope.doClick = function(event){
+  var x = event.clientX;
+  var y = event.clientY;
+  var offsetX = event.offsetX;
+  var offsetY = event.offsetY;
+  console.log(x,y,offsetX,offsetY);
+  var pixelData = context.getImageData(x,y,offsetX,offsetY).data;
+  console.log(pixelData);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 clothesCtrl.types = [
-    {name: 'shirt'},
-    {name: 'pants'},
-    {name: 'skirt'},
-    {name: 'shoes'},
-    {name: 'dress'},
-    {name: 'scarf'},
-    {name: 'accessory'},
-    {name: 'socks'},
-    {name: 'hat'}
+    {name: 'Shirt'},
+    {name: 'Pants'},
+    {name: 'Skirt'},
+    {name: 'Shoes'},
+    {name: 'Dress'},
+    {name: 'Scarf'},
+    {name: 'Accessory'},
+    {name: 'Socks'},
+    {name: 'Hat'}
 ]
 randomString = function(length){
   var text = "";
@@ -24,8 +51,6 @@ randomString = function(length){
   }
   return text;
 }
-
-
 //Firebase Storage//
 //regular upload
 $scope.uploadPic = function(file) {
@@ -80,22 +105,18 @@ clothesCtrl.addClothes = function(downloadURL,pictureName,closetId){
     }
     downloadURL ='';
     $scope.picFile = null;
+    pictureName = '';
   },function(error){
     //handle us some errors
     console.log(error);
   });
 };
-
-
-//fireBase upload//
 $scope.handleFiles = function(event){
   console.log($scope.picFile);
 }
 //Firebase Storage End//
-
-
-  clothesCtrl.clothes = clothes;
-  clothesCtrl.closets = closets;
+clothesCtrl.clothes = clothes;
+clothesCtrl.closets = closets;
 //When a closet id is present in the url bar, the below function is run with that id as the parameter, returning the single closet.
   clothesCtrl.closetGetter = function(stateParams){
     var i,length = clothesCtrl.closets.length-1;

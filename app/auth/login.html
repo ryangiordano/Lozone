@@ -1,20 +1,31 @@
 <section class="login-section">
+  <div class="dynamic-background-wrapper">
+    <div class="dynamic-background">
+      <ul id="bg">
+
+      </ul>
+    </div>
+  </div>
+
+
+
   <div class="container">
     <div class="row">
       <div class="column-md-6">
-        <div class="login-header">
-<h1 class="lozone-title">LOZONE</h1>
-        </div>
 
-        <div class="login-panel">
+        <div class="login-header">
+        </div>
+        <div class="login-panel animated fadeIn">
+
+            <h1 class="lozone-title">LOZONE</h1>
 
           <form class="form-group" ng-submit="authCtrl.login()">
             <img class="img-responsive logo-img" src="img/logo.svg" />
             <div class="">
-              <input type="email" class="form-control" placeholder="EMAIL" ng-model="authCtrl.user.email"ng-required="true"ng-minlength="10">
+              <input type="email" class="form-control" placeholder="EMAIL" ng-model="authCtrl.user.email" ng-required="true" ng-minlength="10">
             </div>
             <div class="">
-              <input type="password" class="form-control" placeholder="PASSWORD" ng-model="authCtrl.user.password"ng-required="true"ng-minlength="8">
+              <input type="password" class="form-control" placeholder="PASSWORD" ng-model="authCtrl.user.password" ng-required="true" ng-minlength="8">
             </div>
             <button type="submit" class="submit-button">LOG IN</button>
             <div class="error" ng-show="authCtrl.error">
@@ -30,3 +41,71 @@
 
   </div>
 </section>
+<script type="text/javascript">
+    // window.onload = (function() {
+    //   //this is the callback after the doors have been placed.
+    //   //get array of all the doors placed.
+    //   function closetClassAppender() {
+    //     closetNodeList = document.getElementsByClassName("closet-fade-in");
+    //     var previousCloset=0;
+    //     //define the code that will add class and taketh them away
+    //     var closetOpen = function(){
+    //       if (previousCloset){
+    //         previousCloset.className = " open-up-closet-design ";
+    //       }
+    //       var random = Math.floor(Math.random()*50);
+    //       previousCloset = closetNodeList[random];
+    //       closetNodeList[random].className +=" close-closet-design ";
+    //
+    //     }
+    // setInterval(closetOpen, 2000);
+    //
+    // }
+    //
+    //
+    //
+    //   function doorPlacer(callback) {
+    //     var x, doorNumber = 50,
+    //       node, div,
+    //       dynamicBackground = document.getElementById('bg');
+    //
+    //     for (x = 0; x < doorNumber; x++) {
+    //       div = document.createElement('div');
+    //       li = document.createElement('li');
+    //       console.log(dynamicBackground);
+    //       div.setAttribute('class'," closet-fade-in ");
+    //       li.appendChild(div);
+    //       dynamicBackground.appendChild(li);
+    //     }
+    //     callback();
+    //   }
+    //
+    //   //Run the function
+    //   doorPlacer(closetClassAppender);
+    //
+    //
+    //
+    //
+    //
+    //
+    // })()
+    //another way
+    window.onload = (function(){
+      var doorCounter=0, li,doorNumber = 54,div,
+                dynamicBackground = document.getElementById('bg');
+      function doorPlacer() {
+          div = document.createElement('div');
+          li = document.createElement('li');
+          div.setAttribute('class'," open-up-closet-design ");
+          li.appendChild(div);
+          dynamicBackground.appendChild(li);
+          doorCounter++;
+          if(doorCounter >= doorNumber){
+            clearInterval(interval);
+          }
+      }
+
+
+      var interval = setInterval(doorPlacer,50);
+    })()
+</script>

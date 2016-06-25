@@ -256,4 +256,4 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         $state.go(to.redirectTo, params,{location:'replace'})
       }
     });
-  }])
+  }]);

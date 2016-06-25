@@ -26,10 +26,9 @@ body {
 }
 .lozone-title {
   font-weight: 200;
-  ;
-  color: #fff;
+  margin-top:0;
+  color: rgb(116, 116, 116);
 }
-
 /* CH03 - Page Structure */
 
 body, html {
@@ -138,15 +137,15 @@ a.custom-underline:hover{
 .login-panel {
   position: absolute;
   top: 50%;
-  left: 50%;
+    left: 49.6%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   width: 25%;
   padding: 3%;
   text-align: center;
-  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+-moz-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
 }
 .login-section input, .submit-button, .closet-create input {
   width: 100%;
@@ -402,7 +401,34 @@ font-size:15px;
   -moz-box-shadow: inset 0px 7px 30px -16px rgba(0, 0, 0, 0.75);
   box-shadow: inset 0px 7px 30px -16px rgba(0, 0, 0, 0.75);
   z-index: -1;
-  background-color: #cbcbcb;
+  background: rgba(226,203,166,1);
+  background: -moz-linear-gradient(left, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,203,166,1)), color-stop(100%, rgba(200,232,232,1)));
+  background: -webkit-linear-gradient(left, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
+  background: -o-linear-gradient(left, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
+  background: -ms-linear-gradient(left, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
+  background: linear-gradient(to right, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2cba6', endColorstr='#c8e8e8', GradientType=1 );
+}
+.add-clothing-decor{
+  height:100%;
+  width:100%;
+  position:absolute;
+  background-image:url(img/backgroundcircles.svg);
+}
+.add-clothing-form{
+  padding:10px 20px 20px;
+  background: rgba(249,184,180,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(249,184,180,1)), color-stop(100%, rgba(224,194,221,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b8b4', endColorstr='#e0c2dd', GradientType=1 );
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
 }
 .add-clothing ul {
   list-style: none;
@@ -499,9 +525,9 @@ font-size:15px;
     width: 50%;
     padding: 3%;
     text-align: center;
-    -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+  box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
   }
   .login-header {
     margin-top: 5vh;
@@ -521,9 +547,9 @@ font-size:15px;
     width: 75%;
     padding: 3%;
     text-align: center;
-    -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+  box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
   }
 }
 

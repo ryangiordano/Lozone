@@ -19,7 +19,8 @@
 
 
 <form class="form-group" name="clothesForm" ng-submit="clothesCtrl.addClothes('clothesForm.$valid')" no-validate>
-        <div class="col-md-4">
+        <div class="col-md-4 add-clothing-form">
+
           <h3>Add an Article of Clothing</h3>
           <fieldset>
             <input type="file" ngf-select ng-model="picFile" name="file"
@@ -36,9 +37,6 @@
             <span ng-show="picFile.result">Upload Successful</span>
             <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
           </fieldset>
-
-
-
 <div class="row">
   <div class="col-xs-8">
     <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type" required>
@@ -54,12 +52,15 @@
             <button type="submit"class="" ng-click="uploadPic(picFile)"ng-disabled="!clothesForm.$valid">Put In Closet</button>
 
         </div>
-        <div class="col-md-3 col-md-offset-1">
-          <div style="height:300px; width:300px; border:3px dashed #ffffff;position:relative; text-align:center;">
-            <img ng-show="myForm.file.$valid" style="margin-top:15%;"ngf-thumbnail="picFile" height="150px"class="thumb">
 
+        <div class="col-md-3 col-md-offset-1">
+          <div class="thumbnail">
+    <div class="preview"></div>
+  </div>
+          <canvas ng-click="doClick($event)"id="cd"style="height:300px; width:300px; border:3px dashed #ffffff;position:relative; text-align:center;">
+            <img ng-show="myForm.file.$valid" style="margin-top:15%;"ngf-thumbnail="picFile" height="150px"class="thumb">
             <button ng-click="picFile=null"ng-show="picFile" style="position:absolute;bottom:0;left:0">remove</button>
-          </div>
+          </canvas>
 
         </div>
         </form>

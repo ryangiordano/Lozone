@@ -1,0 +1,79 @@
+.dynamic-background-wrapper{
+  position:absolute;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+.dynamic-background{
+  position:relative;
+  width:1080px;
+  overflow:hidden;
+  margin:0 auto;
+}
+.dynamic-background ul{
+  padding:0;
+  position:relative;
+overflow:hidden;
+}
+.dynamic-background ul li{
+  display:inline-block;
+}
+.dynamic-background ul li div{
+  height:160px;
+  width:79px;
+  margin:20px 20px;
+  background-color:white;
+  opacity:.3;
+  white-space:nowrap;
+  transition:all .1s ease-in;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+-moz-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+}
+.dynamic-background ul li div:hover{
+  opacity:.7;
+}
+.closet-fade-in{
+  animation: closet-fade 1s forwards;
+
+}
+.open-up-closet-design{
+  animation: closet-open 1s forwards;
+
+}
+.close-closet-design{
+  animation: closet-close 1s forwards;
+
+}
+@keyframes closet-fade{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:.3;
+  }
+}
+@keyframes closet-close{
+  0%{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100%{
+    -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+}
+@keyframes closet-open{
+  0%{
+    -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      opacity:0;
+  }
+  100%{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity:.3;
+  }
+}

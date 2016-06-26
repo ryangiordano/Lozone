@@ -3338,3 +3338,11 @@
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+
+.animated.ng-enter-stagger{
+  -webkit-animation-delay:.2s;
+  animation-delay:.2s;
+}
+.animated.ng-enter{
+
+}

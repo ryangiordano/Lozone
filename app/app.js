@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router','vesparny.fancyModal','colorpicker.module','ngFileUpload'])
+angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router','vesparny.fancyModal','colorpicker.module','ngFileUpload','ngAnimate'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('register', {

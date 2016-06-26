@@ -42,61 +42,13 @@
   </div>
 </section>
 <script type="text/javascript">
-    // window.onload = (function() {
-    //   //this is the callback after the doors have been placed.
-    //   //get array of all the doors placed.
-    //   function closetClassAppender() {
-    //     closetNodeList = document.getElementsByClassName("closet-fade-in");
-    //     var previousCloset=0;
-    //     //define the code that will add class and taketh them away
-    //     var closetOpen = function(){
-    //       if (previousCloset){
-    //         previousCloset.className = " open-up-closet-design ";
-    //       }
-    //       var random = Math.floor(Math.random()*50);
-    //       previousCloset = closetNodeList[random];
-    //       closetNodeList[random].className +=" close-closet-design ";
-    //
-    //     }
-    // setInterval(closetOpen, 2000);
-    //
-    // }
-    //
-    //
-    //
-    //   function doorPlacer(callback) {
-    //     var x, doorNumber = 50,
-    //       node, div,
-    //       dynamicBackground = document.getElementById('bg');
-    //
-    //     for (x = 0; x < doorNumber; x++) {
-    //       div = document.createElement('div');
-    //       li = document.createElement('li');
-    //       console.log(dynamicBackground);
-    //       div.setAttribute('class'," closet-fade-in ");
-    //       li.appendChild(div);
-    //       dynamicBackground.appendChild(li);
-    //     }
-    //     callback();
-    //   }
-    //
-    //   //Run the function
-    //   doorPlacer(closetClassAppender);
-    //
-    //
-    //
-    //
-    //
-    //
-    // })()
-    //another way
     window.onload = (function(){
       var doorCounter=0, li,doorNumber = 54,div,
                 dynamicBackground = document.getElementById('bg');
       function doorPlacer() {
           div = document.createElement('div');
           li = document.createElement('li');
-          div.setAttribute('class'," open-up-closet-design ");
+          div.setAttribute('class'," closet-fade-in-up ");
           li.appendChild(div);
           dynamicBackground.appendChild(li);
           doorCounter++;
@@ -106,6 +58,7 @@
       }
 
 
-      var interval = setInterval(doorPlacer,50);
+      var interval = setInterval(doorPlacer,30);
     })()
+
 </script>

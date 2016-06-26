@@ -15,7 +15,7 @@
 
       <!-- Begin closet listing -->
       <div class="col-md-3" ng-repeat="closet in closetCtrl.closets" ng-init='clothesInsideCloset = closetCtrl.clothesInsideCloset(closet.$id)'>
-        <div class="closet-wrapper">
+        <div class="closet-wrapper animated fadeInUp">
           <div class="closet-bar" ng-class="{empty: clothesInsideCloset[3] == 0,occupied: clothesInsideCloset[3]>0}" style="background: linear-gradient(to right, {{clothesInsideCloset[1]}} 0%,{{clothesInsideCloset[2]}} 100%); margin-bottom:10px;">
             <p>{{clothesInsideCloset[0]}}</p>
           </div>

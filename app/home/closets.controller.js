@@ -10,7 +10,7 @@ angular.module('Lozone')
 
 
 
-
+// TODO: animate in closets using staggerto nganimte
 
 
 
@@ -105,6 +105,7 @@ angular.module('Lozone')
       }
     });
   }
+  closetCtrl.createClosetShow = false;
   closetCtrl.createCloset = function(){
     closetCtrl.closets.$add(closetCtrl.newCloset).then(function(){
       if(closetCtrl.newCloset.name == ''){

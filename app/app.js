@@ -157,7 +157,7 @@ angular.module('Lozone', ['firebase','ui.bootstrap', 'angular-md5', 'ui.router',
         controller: 'wishListController as wishListCtrl'
       })
       .state('closet-explore',{
-        parent:'lz',
+        parent:'closets',
         url:'/closet/{closetId}',
         templateUrl: 'home/closet-explore.html',
         controller: 'clothesController as clothesCtrl',

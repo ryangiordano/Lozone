@@ -10,74 +10,68 @@
 </nav>
 <div class="add-clothing slideable" duration=".3s" id="clothing-adder">
   <div class="add-clothing-wrapper">
-  <div class="container">
+    <div class="container">
 
-    <div class="row">
+      <div class="row">
 
+        <form class="form-group" name="clothesForm" ng-submit="clothesCtrl.addClothes('clothesForm.$valid')" no-validate>
+          <div class="col-md-4 add-clothing-form">
 
-
-
-
-<form class="form-group" name="clothesForm" ng-submit="clothesCtrl.addClothes('clothesForm.$valid')" no-validate>
-        <div class="col-md-4 add-clothing-form">
-
-          <h3>Add an Article of Clothing</h3>
-          <fieldset>
-            <input type="file" ngf-select ng-model="picFile" name="file"
-                   accept="image/*" ngf-max-size="2MB" required
-                   ngf-model-invalid="errorFile" file-model="picFile" custom-on-change="handleFiles">
-            <i ng-show="clothesForm.file.$error.required">*required</i>
-            <i ng-show="clothesForm.file.$error.maxSize">File too large
+            <h3>Add an Article of Clothing</h3>
+            <fieldset>
+              <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFile" file-model="picFile" custom-on-change="handleFiles">
+              <i ng-show="clothesForm.file.$error.required">*required</i>
+              <i ng-show="clothesForm.file.$error.maxSize">File too large
                 {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
 
-            <span class="progress" ng-show="picFile.progress >= 0">
+              <span class="progress" ng-show="picFile.progress >= 0">
               <div style="width:{{picFile.progress}}%"
                   ng-bind="picFile.progress + '%'"></div>
             </span>
-            <span ng-show="picFile.result">Upload Successful</span>
-            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
-          </fieldset>
-<div class="row">
-  <div class="col-xs-8">
-    <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type" required>
-      <option value=""selected disabled>TYPE</option>
-    </select>
-  </div>
-  <div class="col-xs-4">
+              <span ng-show="picFile.result">Upload Successful</span>
+              <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+            </fieldset>
+            <div class="row">
+              <div class="col-xs-8">
+                <select class="" name="colors" ng-options="type.name for type in clothesCtrl.types" ng-model="clothesCtrl.clothingPiece.type" required>
+                  <option value="" selected disabled>TYPE</option>
+                </select>
+              </div>
+              <div class="col-xs-4">
 
-    <input class="color-picker-input"no-validate required class="" type="text" colorpicker="hex" ng-model="clothesCtrl.clothingPiece.colors" colorpicker-close-on-select style="width:50px;height:50px;background-color:{{clothesCtrl.clothingPiece.colors}}" >
-  </div>
-</div>
+                <input class="color-picker-input" no-validate required class="" type="text" colorpicker="hex" ng-model="clothesCtrl.clothingPiece.colors" colorpicker-close-on-select style="width:50px;height:50px;background-color:{{clothesCtrl.clothingPiece.colors}}">
+              </div>
+            </div>
 
-            <button type="submit"class="" ng-click="uploadPic(picFile)"ng-disabled="!clothesForm.$valid">Put In Closet</button>
+            <button type="submit" class="" ng-click="uploadPic(picFile)" ng-disabled="!clothesForm.$valid">Put In Closet</button>
 
-        </div>
+          </div>
 
-        <div class="col-md-3 col-md-offset-1">
-          <div class="thumbnail">
-    <div class="preview"></div>
-  </div>
-          <canvas ng-click="doClick($event)"id="cd"style="height:300px; width:300px; border:3px dashed #ffffff;position:relative; text-align:center;">
-            <img ng-show="myForm.file.$valid" style="margin-top:15%;"ngf-thumbnail="picFile" height="150px"class="thumb">
-            <button ng-click="picFile=null"ng-show="picFile" style="position:absolute;bottom:0;left:0">remove</button>
-          </canvas>
+          <div class="col-md-3 col-md-offset-1">
+            <div class="thumbnail">
+              <div class="preview"></div>
+            </div>
+            <div ng-click="doClick($event)" id="cd" style="height:300px; width:300px; border:3px dashed #ffffff;position:relative; text-align:center;">
+              <img ng-show="myForm.file.$valid" style="margin-top:15%;" ngf-thumbnail="picFile" height="150px" class="thumb">
+              <button ng-click="picFile=null" ng-show="picFile" style="position:absolute;bottom:0;left:0">remove</button>
+            </div>
 
-        </div>
+          </div>
         </form>
 
+      </div>
     </div>
-  </div>
 
   </div>
 </div>
 <div class="closet-stripe"></div>
 <section ng-hide="true">
-<!-- Have some sort of "add clothes!" message" -->
+  <!-- Have some sort of "add clothes!" message" -->
 </section>
 <section class="closet-explore">
 
   <div class="container">
-    <img ng-src="{{clothesCtrl.path}}"  />
+    <img ng-src="{{clothesCtrl.path}}" />
     <div class="row">
       <!-- Begin closet listing -->
       <div class="col-md-2" ng-repeat="clothes in clothesCtrl.clothes | filter: {closet: currentClosetId} ">

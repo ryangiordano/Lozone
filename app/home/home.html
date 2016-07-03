@@ -1,5 +1,5 @@
 <navbar></navbar>
-<ui-view>
+<ui-view >
   <section>
     <div class="container">
       <div class="row">
@@ -15,6 +15,7 @@
             <input type="text" name="name" placeholder="PROFILE NAME" ng-model="profile.displayName" required>
             <button type="submit">SET DISPLAY NAME</button>
           </form>
+                    <a href="#" ng-click="navCtrl.logout()">LOGOUT</a>
         </div>
       </div>
     </div>

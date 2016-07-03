@@ -1,5 +1,5 @@
 
-<nav class="subnav">
+<!-- <nav class="subnav">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -7,66 +7,86 @@
       </div>
     </div>
   </div>
-</nav>
-<section class="closets" >
-
-  <div class="container">
-    <div class="row">
-
-      <!-- Begin closet listing -->
-      <div class="col-md-3" ng-repeat="closet in closetCtrl.closets" ng-init='clothesInsideCloset = closetCtrl.clothesInsideCloset(closet.$id)'>
-        <div class="closet-wrapper animated fadeInUp">
-          <div class="closet-bar" ng-class="{empty: clothesInsideCloset[3] == 0,occupied: clothesInsideCloset[3]>0}" style="background: linear-gradient(to right, {{clothesInsideCloset[1]}} 0%,{{clothesInsideCloset[2]}} 100%); margin-bottom:10px;">
-            <p>{{clothesInsideCloset[0]}}</p>
+</nav> -->
+<section class="main row">
+<div class="closets col-xs-3" >
+  <div class="side-bar">
+    <div class="side-bar-header">
+      <h4>{{navHeader}} <a ng-click="createClosetShow = !createClosetShow "><img src="img/add.svg" height="25px"></a></h4>
+    </div>
+    <div class=" closet-create" ng-show="createClosetShow == true">
+      <form class="form-group" name="closetForm" ng-submit="closetCtrl.createCloset('closetForm.$valid')">
+        <div class="row">
+          <div class="col-xs-9">
+                    <input class="form-control"type="text" name="closet-name" placeholder="CLOSET NAME" ng-model="closetCtrl.newCloset.name"ng-minlength="3" ng-maxlength="24" ng-required novalidate required>
           </div>
+          <div class="col-xs-3">
+        <button type="submit"class="submit-button" ng-disabled="closetForm.$invalid">+</button>
+          </div>
+        </div>
 
-          <div class="closet">
+
+      </form>
+    </div>
 
 
-            <div class="closet-header">
-              <h3><a ui-sref="closet-explore({closetId:closet.$id})">{{closet.name}}</a></h3>
+        <div class="" ng-repeat="closet in closetCtrl.closets" ng-init='clothesInsideCloset = closetCtrl.clothesInsideCloset(closet.$id)'>
+          <div class="closet-wrapper animated fadeInUp"ui-sref-active="current-closet" >
 
+            <div class="closet-bar"  ui-sref="closet-explore({closetId:closet.$id})" ng-class="{empty: clothesInsideCloset[3] == 0,occupied: clothesInsideCloset[3]>0}" style="background: linear-gradient(to right, {{clothesInsideCloset[1]}} 0%,{{clothesInsideCloset[2]}} 100%);">
+                              <span><h4><a href="#">{{closet.name}}</a></h4></span>
+              <span><p>{{clothesInsideCloset[0]}}</p></span>
             </div>
-            <div class="closet-content row">
-              <div class="closet-preview-image col-md-12">
-                <div class="row">
-                  <div class="col-xs-3"ng-repeat="clothing in clothesInsideCloset[4]">
-                    <img class="img-responsive"ng-src="{{clothing.picture}}">
+
+            <div class="closet">
+              <div class="closet-content row">
+                <div class="closet-preview-image col-md-12">
+                  <div class="row">
+                    <div class="col-xs-2"ng-repeat="clothing in clothesInsideCloset[4]">
+                      <img ng-src="{{clothing.picture}}">
+                    </div>
                   </div>
+                  <img ng-hide="clothesInsideCloset[3]"style="height:50px" src="img/lozonehead.svg">
                 </div>
-                <img ng-hide="clothesInsideCloset[3]"style="height:150px" src="img/lozonehead.svg">
+                <div class="col-md-2">
+                  <ul class="closet-colors">
+                    <li>
+                      <div></div>
+                    </li>
+                  </ul>
+                </div>
+
               </div>
-              <div class="col-md-2">
-                <ul class="closet-colors">
-                  <li>
-                    <div></div>
-                  </li>
+
+              <div class="closet-footer">
+                <ul>
+                  <a ng-click="closetCtrl.addFavorite(closet)">
+                    <li><img ng-hide="closet.favorite" src="img/heart.svg" /><img ng-show="closet.favorite" src="img/heartfilled.svg" /></li>
+                  </a>
+                  <a>
+                    <li><img src="img/addclothes.svg" /></li>
+                  </a>
+                  <a>
+                    <li><img src="img/editcloset.svg" /></li>
+                  </a>
+                  <a ng-click="closetCtrl.deleteCloset(closet,clothesInsideCloset[3],closet.$id)">
+                    <li><img src="img/delete.svg" /></li>
+                  </a>
                 </ul>
               </div>
-
-            </div>
-
-            <div class="closet-footer">
-              <ul>
-                <a ng-click="closetCtrl.addFavorite(closet)">
-                  <li><img ng-hide="closet.favorite" src="img/heart.svg" /><img ng-show="closet.favorite" src="img/heartfilled.svg" /></li>
-                </a>
-                <a>
-                  <li><img src="img/addclothes.svg" /></li>
-                </a>
-                <a>
-                  <li><img src="img/editcloset.svg" /></li>
-                </a>
-                <a ng-click="closetCtrl.deleteCloset(closet,clothesInsideCloset[3],closet.$id)">
-                  <li><img src="img/delete.svg" /></li>
-                </a>
-              </ul>
             </div>
           </div>
         </div>
+
       </div>
-      <!-- end closet listing -->
-    </div>
-  </div>
+
+
+
+</div>
+<div class="clothes-area col-xs-9">
+  <ui-view >
+  </ui-view>
+</div>
+
 
 </section>

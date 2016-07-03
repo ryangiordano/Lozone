@@ -26,14 +26,14 @@ body {
 }
 .lozone-title {
   font-weight: 200;
-  margin-top:0;
+  margin-top: 0;
   color: rgb(116, 116, 116);
 }
+
 /* CH03 - Page Structure */
 
 body, html {
   height: 100%;
-
 }
 section {
   min-height: 100%;
@@ -59,7 +59,7 @@ section {
   margin-top: 15px;
 }
 .nav-logo {
-  height: 50px;
+  height: 35px;
 }
 .main-nav ul {
   padding: 0;
@@ -106,16 +106,17 @@ section {
 .subnav h2 {
   margin-top: 10px;
 }
-.subnav h2 a{
+.subnav h2 a {
   color: #333333;
-  text-decoration:none;
+  text-decoration: none;
 }
-a.custom-underline:hover{
+a.custom-underline:hover {
   box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black;
 }
-.main-nav .dropdown-menu li a{
-  color:#646464;
+.main-nav .dropdown-menu li a {
+  color: #646464;
 }
+
 /* CH05 - Content & Media */
 
 
@@ -137,15 +138,15 @@ a.custom-underline:hover{
 .login-panel {
   position: absolute;
   top: 50%;
-    left: 49.6%;
+  left: 49.6%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   width: 25%;
   padding: 3%;
   text-align: center;
-  -webkit-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
--moz-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
 }
 .login-section input, .submit-button, .closet-create input {
   width: 100%;
@@ -188,43 +189,88 @@ box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
 
 /* closets */
 
+.main {
+  margin-left: 0;
+  margin-right: 0;
+  height: 100%;
+  width: 100%;
+}
+.closet-create{
+  padding-left:15px;
+  padding-right:15px;
+  margin-left:0;
+  margin-right:0;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.closets .side-bar {
+  height: 100%;
+  overflow-y: scroll;
+  width: 100%;
+  background-color: #C1BADD;
+  position: relative;
+}
+.closets .side-bar-header{
+  padding-left:15px;
+  padding-right:15px;
+}
 .closet {
-  background-color: #ffffff;
-  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 5px 15px;
-  min-height: 100px;
+  min-height: 50px;
+  transition: all .2s ease;
+}
+.closets {
+  height: 100%;
+  background-color: #ededed;
+  position: relative;
+  display: inline-block;
+  padding-right: 0;
+  padding-left: 0;
+}
+.current-closet .closet {
+  background-color: rgba(255, 255, 255, 1);
+}
+.closet-explore {
+  background: rgba(217, 217, 217, 1);
+  background: -moz-linear-gradient(top, rgba(217, 217, 217, 1) 0%, rgba(235, 235, 235, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(217, 217, 217, 1)), color-stop(100%, rgba(235, 235, 235, 1)));
+  background: -webkit-linear-gradient(top, rgba(217, 217, 217, 1) 0%, rgba(235, 235, 235, 1) 100%);
+  background: -o-linear-gradient(top, rgba(217, 217, 217, 1) 0%, rgba(235, 235, 235, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(217, 217, 217, 1) 0%, rgba(235, 235, 235, 1) 100%);
+  background: linear-gradient(to bottom, rgba(217, 217, 217, 1) 0%, rgba(235, 235, 235, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#ebebeb', GradientType=0);
+  -webkit-box-shadow: inset 3px 0px 15px 1px rgba(0,0,0,0.2);
+-moz-box-shadow: inset 3px 0px 15px 1px rgba(0,0,0,0.2);
+box-shadow: inset 3px 0px 15px 1px rgba(0,0,0,0.2);
+}
+.closet-wrapper {
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  position: relative;
+  height: 100%;
   -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
-
-}
-.closets{
-  background-color: #ededed;
-}
-.closet-explore{
-  background: rgba(217,217,217,1);
-  background: -moz-linear-gradient(top, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(217,217,217,1)), color-stop(100%, rgba(235,235,235,1)));
-  background: -webkit-linear-gradient(top, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
-  background: -o-linear-gradient(top, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
-  background: -ms-linear-gradient(top, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
-  background: linear-gradient(to bottom, rgba(217,217,217,1) 0%, rgba(235,235,235,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#ebebeb', GradientType=0 );
-}
-
-.closet-wrapper {
-  position: relative;
-  height: 100%;
+  transition: all .2s ease;
 }
 .closet-bar {
   width: 100%;
-  position: absolute;
-  height: 25px;
-  text-align: right;
+  position: relative;
+  ;
+  color: #ffffff;
+  text-align: left;
+  opacity: .5;
+  transition: all .2s ease;
 }
-.closet-bar p {
-  padding-right: 15px;
-  margin-top: 2px;
+.current-closet .closet-bar {
+  opacity: 1;
+}
+.closet-bar span {
+  padding-left: 15px;
+  display: inline-block;
 }
 .closet-bar.occupied {
   color: #ffffff;
@@ -232,9 +278,8 @@ box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
 .closet-bar.empty {
   color: #656565;
 }
-.closet-content{
-  height:150px;
-  overflow:hidden;
+.closet-content {
+  overflow: hidden;
 }
 .closet-stripe {
   width: 100%;
@@ -242,15 +287,20 @@ box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
   height: 10px;
   background: linear-gradient(to right, #F05A88 0%, #6FB8E6 100%);
 }
-.closet-header {
-  padding-top: 10px;
+.closet-preview-image {
+  text-align: center
 }
-.closet-preview-image{
-  text-align:center
+.closet-preview-image img {
+  height: 35px;
 }
-.closet-header h3 a, .clothes-header h3 a {
+.closets .occupied h4 a {
+  color: #ffffff;
+}
+.closets .empty h4 a {
   color: #333333;
-
+}
+.clothes-header h3 a {
+  color: #333333;
 }
 .closet-create button {}
 .circle-button {
@@ -260,7 +310,11 @@ box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
   height: 30px;
   cursor: pointer;
 }
-.closet-footer {}
+.closet-footer {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
 .closet-footer ul {
   padding: 10px 0 0 0;
   text-align: right;
@@ -270,7 +324,7 @@ box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
   display: inline;
 }
 .closet-footer ul li img {
-  height: 25px;
+  height: 20px;
 }
 .closet-colors li {
   list-style: none;
@@ -281,14 +335,19 @@ box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
   width: 20px;
   border: 1 px solid black;
 }
-.closet-footer a,.clothes-footer a{
-  text-decoration:none;
+.closet-footer a, .clothes-footer a {
+  text-decoration: none;
 }
 
 /*clothes*/
 
-.clothes {
+.clothes-area {
+  padding-right: 0;
+  padding-left: 0;
+  height: 100%;
 
+}
+.clothes {
   background-color: #ffffff;
   margin-top: 25px;
   padding: 5px 15px;
@@ -297,37 +356,36 @@ box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
   -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
 }
-.clothes-wrapper{
-  position:relative;
+.clothes-wrapper {
+  position: relative;
 }
-.clothes-form{
-  background-color:#ffffff;
-  margin:2px;
-  padding:10px 0;
+.clothes-form {
+  background-color: #ffffff;
+  margin: 2px;
+  padding: 10px 0;
   min-height: 50px;
 }
-.clothes-form h4, .clothes-form p,.clothes-form .closet-status img{
-  display:inline;
-  position:relative;
-  margin:0 10px;
+.clothes-form h4, .clothes-form p, .clothes-form .closet-status img {
+  display: inline;
+  position: relative;
+  margin: 0 10px;
 }
-.clothes-form ul{
+.clothes-form ul {
   padding: 0 0 0 0;
   text-align: center;
 }
-.clothes-form ul li{
-    margin-left: 3px;
+.clothes-form ul li {
+  margin-left: 3px;
   display: inline;
 }
 .clothes h3 {
   margin-top: 0;
 }
-.clothes-preview-image{
-    text-align:center;
+.clothes-preview-image {
+  text-align: center;
 }
-.clothes-preview-image img{
-
-  height:100px;
+.clothes-preview-image img {
+  height: 100px;
 }
 .clothes-wrapper {
   position: relative;
@@ -339,16 +397,13 @@ box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
   height: 25px;
   background: linear-gradient(to right, #cc9dda 0%, #7EB9E8 100%);
 }
-.clothes-header {
-
+.clothes-header {}
+.clothes-header .title {
+  font-size: 15px;
 }
-.clothes-header .title{
-font-size:15px;
-
-}
-.closet-status{
-  font-size:12px;
-  text-align:right;
+.closet-status {
+  font-size: 12px;
+  text-align: right;
 }
 .clothes-footer ul {
   padding: 10px 0 0 0;
@@ -361,14 +416,12 @@ font-size:15px;
 .clothes-footer ul li img {
   height: 20px;
 }
-.clothes-colors{
-
-}
-.clothes-color-stripe{
-  position:absolute;
-  right:0;
-  height:100%;
-  width:5px;
+.clothes-colors {}
+.clothes-color-stripe {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 5px;
 }
 .clothes-colors li {
   list-style: none;
@@ -379,53 +432,50 @@ font-size:15px;
   width: 20px;
   border: 1 px solid black;
 }
-.clothing-inspector{
-  background-color:#ffffff;
-  padding:20px;
-  margin-top:50px;
+.clothing-inspector {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 50px;
 }
-.clothing-inspector ul{
+.clothing-inspector ul {
   padding: 10px 0 0 0;
-
 }
-.clothing-inspector ul li{
-  list-style:none;
-  display:inline;
-  margin:0 20px;
-  font-size:20px;
-
+.clothing-inspector ul li {
+  list-style: none;
+  display: inline;
+  margin: 0 20px;
+  font-size: 20px;
 }
-
 .add-clothing {
   -webkit-box-shadow: inset 0px 7px 30px -16px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 0px 7px 30px -16px rgba(0, 0, 0, 0.75);
   box-shadow: inset 0px 7px 30px -16px rgba(0, 0, 0, 0.75);
   z-index: -1;
-  background: rgba(226,203,166,1);
-  background: -moz-linear-gradient(left, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,203,166,1)), color-stop(100%, rgba(200,232,232,1)));
-  background: -webkit-linear-gradient(left, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
-  background: -o-linear-gradient(left, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
-  background: -ms-linear-gradient(left, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
-  background: linear-gradient(to right, rgba(226,203,166,1) 0%, rgba(200,232,232,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2cba6', endColorstr='#c8e8e8', GradientType=1 );
+  background: rgba(226, 203, 166, 1);
+  background: -moz-linear-gradient(left, rgba(226, 203, 166, 1) 0%, rgba(200, 232, 232, 1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226, 203, 166, 1)), color-stop(100%, rgba(200, 232, 232, 1)));
+  background: -webkit-linear-gradient(left, rgba(226, 203, 166, 1) 0%, rgba(200, 232, 232, 1) 100%);
+  background: -o-linear-gradient(left, rgba(226, 203, 166, 1) 0%, rgba(200, 232, 232, 1) 100%);
+  background: -ms-linear-gradient(left, rgba(226, 203, 166, 1) 0%, rgba(200, 232, 232, 1) 100%);
+  background: linear-gradient(to right, rgba(226, 203, 166, 1) 0%, rgba(200, 232, 232, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e2cba6', endColorstr='#c8e8e8', GradientType=1);
 }
-.add-clothing-decor{
-  height:100%;
-  width:100%;
-  position:absolute;
-  background-image:url(img/backgroundcircles.svg);
+.add-clothing-decor {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url(img/backgroundcircles.svg);
 }
-.add-clothing-form{
-  padding:10px 20px 20px;
-  background: rgba(249,184,180,1);
-  background: -moz-radial-gradient(center, ellipse cover, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(249,184,180,1)), color-stop(100%, rgba(224,194,221,1)));
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
-  background: -o-radial-gradient(center, ellipse cover, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
-  background: -ms-radial-gradient(center, ellipse cover, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
-  background: radial-gradient(ellipse at center, rgba(249,184,180,1) 0%, rgba(224,194,221,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b8b4', endColorstr='#e0c2dd', GradientType=1 );
+.add-clothing-form {
+  padding: 10px 20px 20px;
+  background: rgba(249, 184, 180, 1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(249, 184, 180, 1) 0%, rgba(224, 194, 221, 1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(249, 184, 180, 1)), color-stop(100%, rgba(224, 194, 221, 1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(249, 184, 180, 1) 0%, rgba(224, 194, 221, 1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(249, 184, 180, 1) 0%, rgba(224, 194, 221, 1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(249, 184, 180, 1) 0%, rgba(224, 194, 221, 1) 100%);
+  background: radial-gradient(ellipse at center, rgba(249, 184, 180, 1) 0%, rgba(224, 194, 221, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f9b8b4', endColorstr='#e0c2dd', GradientType=1);
   -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.75);
@@ -496,11 +546,11 @@ font-size:15px;
   color: #646464;
   cursor: default;
 }
-.add-clothing input.color-picker-input{
-  border-radius:50px;
-  background-color:transparent;
-  color:transparent;
-  border:solid 3px #ffffff;
+.add-clothing input.color-picker-input {
+  border-radius: 50px;
+  background-color: transparent;
+  color: transparent;
+  border: solid 3px #ffffff;
 }
 
 /* CH06 - Footer */
@@ -525,9 +575,9 @@ font-size:15px;
     width: 50%;
     padding: 3%;
     text-align: center;
-    -webkit-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
-  -moz-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
-  box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
   }
   .login-header {
     margin-top: 5vh;
@@ -547,9 +597,9 @@ font-size:15px;
     width: 75%;
     padding: 3%;
     text-align: center;
-    -webkit-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
-  -moz-box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
-  box-shadow: 0px 10px 16px 2px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 10px 16px 2px rgba(0, 0, 0, 0.25);
   }
 }
 
